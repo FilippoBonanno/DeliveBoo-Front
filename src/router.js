@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./components/AppHome.vue";
 import AppProva from "./components/AppProva.vue";
 
-const router = createRouter ({
+const router = createRouter({
     history: createWebHistory(),
 
     routes: [
@@ -18,6 +18,11 @@ const router = createRouter ({
             component: AppProva
         },
 
+        {
+            path: '/CardsApp',
+            name: 'CardsApp',
+            component: () => import('./components/CardsApp.vue')
+        },
 
     ]
 });
