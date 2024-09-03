@@ -7,7 +7,7 @@ export default {
 	name: 'App',
 
 	components: {
-		
+
 	},
 
 	data() {
@@ -29,9 +29,8 @@ export default {
 
 <template>
 	<router-link :to="{ name: 'home' }"></router-link>
+	<router-link :to="{ name: 'CardsApp' }">cards</router-link>
 	<router-view></router-view>
 </template>
 
-<style scoped>
-</style>
-
+<style scoped></style>

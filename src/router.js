@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AppHome from "./components/AppHome.vue";
 
-const router = createRouter ({
+const router = createRouter({
     history: createWebHistory(),
 
     routes: [
@@ -11,6 +11,11 @@ const router = createRouter ({
             component: AppHome
         },
 
+        {
+            path: '/CardsApp',
+            name: 'CardsApp',
+            component: () => import('./components/CardsApp.vue')
+        },
 
     ]
 });
