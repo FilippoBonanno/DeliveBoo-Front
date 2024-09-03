@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-	<router-link :to="{ name: 'home' }"> home </router-link>
+	<router-link :to="{ name: 'home' }"></router-link>
 	<router-view></router-view>
 </template>
 
