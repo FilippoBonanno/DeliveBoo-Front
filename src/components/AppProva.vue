@@ -24,8 +24,19 @@ export default {
 </script>
 
 <template>
-<h1>prova</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <h1>prova</h1>
+            </div>
+        </div>
+    </div>
+<div class="quad"></div>
 </template>
 
 <style scoped>
+.quad {
+    height: 100rem;
+    width: 100%;
+}
 </style>
