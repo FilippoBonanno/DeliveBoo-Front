@@ -40,7 +40,7 @@ export default {
 
 <!-- RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
 <template>
-    <div class="typology-card" @click="selected">
+    <div :class="['typology-card', { selected: isChecked }]" @click="selected">
         <div class="image-container">
             <img :src="imageSrc" :alt="typologyName" />
         </div>
@@ -64,7 +64,7 @@ export default {
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 10px;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
@@ -81,18 +81,27 @@ export default {
 }
 
 .image-container img {
-    width: 90%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
+
 }
 
 .typology-name {
-    background-color: #ffc107;
     border-radius: 10px;
     padding: 5px 10px;
     font-weight: bold;
     color: #000;
     display: inline-block;
-    margin-top: -10px;
+    margin-top: 5px;
+    font-family: "Permanent Marker";
+
+}
+
+.typology-card.selected {
+    transform: scale(1.1);
+    /* Effetto zoom */
+    box-shadow: 0 0 15px 5px rgba(255, 193, 7, 0.5);
+    /* Effetto luce gialla sotto */
 }
 </style>
