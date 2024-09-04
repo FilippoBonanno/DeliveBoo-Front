@@ -13,7 +13,7 @@ export default {
         return {
             categories: '',
             categoriesSelected: [],
-            valueToRemove: '',
+            restaurants: '',
         }
     },
 
@@ -21,6 +21,7 @@ export default {
         getRestaurants() {
             axios.get('http://localhost:8000/api/restaurants', { params: { categories: this.categoriesSelected } }).then((response)=> {
                 console.log(response)
+                this.restaurants = response.data;
             })
         },
 
@@ -67,7 +68,7 @@ export default {
                     <div class="d-flex flex-wrap justify-content-center">
                         <template v-for="item in categories">
                             <div>
-                                <TypologyCard @click="getCategory(item.name)" :typologyName="item.name" />
+                                <TypologyCard @click="getCategory(item.name)" :typologyName="item.name" :imageSrc="item.img"/>
                             </div>
                         </template>
                     </div>
@@ -78,6 +79,16 @@ export default {
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <button @click="getRestaurants()" class="btn btn-primary">Invia</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <template v-for="restaurant in this.restaurants">
+                        <h1>{{ restaurant.name }}</h1>
+                    </template>
                 </div>
             </div>
         </div>
