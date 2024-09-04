@@ -33,9 +33,11 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <h1>Ristorante {{ this.restaurant.name }}</h1>
-                <template>
-                    <h2></h2>
+                <h1>{{ this.restaurant.name }}</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-between">
+                <template v-for="dish in this.restaurant.dishes">
+                    <h2>{{ dish.name }}</h2>
                 </template>
             </div>
         </div>
