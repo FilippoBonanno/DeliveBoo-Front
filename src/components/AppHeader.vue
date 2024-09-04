@@ -14,22 +14,25 @@ export default {
     },
 
     methods: {
-
+        getImg(path) {
+            let risultato = new URL("../assets/img/" + path, import.meta.url);
+            return risultato.href;
+        }
     },
 
     mounted() {
-
+        
     }
 }
 </script>
 
 <template>
-    <header class="orange">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-between">
-                    <div>
-                        DeliveBoo
+    <header class="orange mb-5">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex justify-content-between align-items-center">
+                    <div class="img-container">
+                        <img src="../assets/img/deliveboologo.png" alt="">
                     </div>
                     <div class="d-flex">
                         <div class="me-2">
@@ -53,5 +56,21 @@ export default {
 a {
     text-decoration: none;
     color: black;
+}
+
+header {
+    height: 5rem;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.img-container {
+    height: 5rem;
+}
+
+img {
+    height: 100%;
 }
 </style>
