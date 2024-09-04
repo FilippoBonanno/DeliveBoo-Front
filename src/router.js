@@ -20,9 +20,9 @@ const router = createRouter({
         },
 
         {
-            path: '/CardsApp',
-            name: 'CardsApp',
-            component: () => import('./components/CardsApp.vue')
+            path: '/TypologyCard',
+            name: 'TypologyCard',
+            component: () => import('./components/TypologyCard.vue')
         },
 
         {
