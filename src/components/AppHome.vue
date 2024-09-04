@@ -1,12 +1,12 @@
 <script>
 import axios from 'axios';
-import CardsApp from './CardsApp.vue';
+import TypologyCard from './TypologyCard.vue';
 
 export default {
     name: 'AppHome',
 
     components: {
-       CardsApp,
+        TypologyCard,
     },
 
     data() {
@@ -59,5 +59,4 @@ export default {
     </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
