@@ -1,15 +1,17 @@
 <script>
+import axios from 'axios';
+import CardsApp from './CardsApp.vue';
 
 export default {
     name: 'AppHome',
 
     components: {
-       
+       CardsApp,
     },
 
     data() {
         return {
-
+            restaurants: '',
         }
     },
 
@@ -18,7 +20,13 @@ export default {
     },
 
     mounted() {
+        axios.get('http://localhost:8000/api/restaurants').then(response => {
+            console.log(response);
+            this.restaurants = response.data;
 
+            console.log(this.restaurants)
+
+        })
     }
 }
 </script>
@@ -37,10 +45,12 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
-                    <div>
-                        <p>
-                            o checkbox per fare veloce o card selezionabili con immagine e testo centrato
-                        </p>
+                    <div class="d-flex flex-wrap">
+                        <template v-for="item in restaurants">
+                            <div>
+                                <CardsApp :typologyName="item.name" :imageSrc="item.img" />
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
