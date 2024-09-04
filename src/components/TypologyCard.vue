@@ -45,8 +45,7 @@ export default {
             <img :src="imageSrc" :alt="typologyName" />
         </div>
         <div class="typology-name d-flex justify-content-center align-items-center flex-column">
-            <!-- {{ typologyName }} -->
-            <p class="mb-0">MacDonalds</p> <!--RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
+            {{ typologyName }}
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
