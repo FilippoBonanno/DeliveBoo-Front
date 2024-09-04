@@ -1,7 +1,7 @@
 <script>
 
 export default {
-    name: 'CardsApp',
+    name: 'TypologyCard',
 
     components: {
 
@@ -16,22 +16,20 @@ export default {
             type: String,
             required: true,
         },
-        isSelected: {
-            type: Boolean,
-            default: false,
-        },
+
     },
 
     data() {
         return {
-
-        }
+            isChecked: false,
+        };
     },
 
     methods: {
-        toggleSelection() {
-            this.$emit('toggle-selection', this.restaurantName);
+        selected() {
+            this.isChecked = !this.isChecked;
         },
+
     },
 
     mounted() {
@@ -42,12 +40,18 @@ export default {
 
 <!-- RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
 <template>
-    <div :class="['typology-card', { selected: isSelected }]" @click="toggleSelection">
+    <div class="typology-card" @click="selected">
         <div class="image-container">
             <img :src="imageSrc" :alt="typologyName" />
         </div>
-        <div class="typology-name">
-            {{ typologyName }}
+        <div class="typology-name d-flex justify-content-center align-items-center flex-column">
+            <!-- {{ typologyName }} -->
+            <p class="mb-0">MacDonalds</p> <!--RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                </label>
+            </div>
         </div>
     </div>
 </template>
@@ -61,15 +65,9 @@ export default {
     cursor: pointer;
     border: 2px solid transparent;
     border-radius: 10px;
-    transition: all 0.3s ease;
+
 }
 
-.typology-card.selected {
-    border-color: #ff0707;
-    /* Colore di bordo per la card selezionata */
-    background-color: #fef7e0;
-    /* Colore di sfondo per la card selezionata */
-}
 
 .image-container {
     width: 100px;
