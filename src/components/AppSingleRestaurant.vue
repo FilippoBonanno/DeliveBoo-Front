@@ -34,6 +34,9 @@ export default {
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <h1>Ristorante {{ this.restaurant.name }}</h1>
+                <template>
+                    <h2></h2>
+                </template>
             </div>
         </div>
     </div>
