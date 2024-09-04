@@ -48,7 +48,7 @@ export default {
                     <div class="d-flex flex-wrap">
                         <template v-for="item in restaurants">
                             <div>
-                                <CardsApp :typologyName="item.name" :imageSrc="item.img" />
+                                <TypologyCard :typologyName="item.name" :imageSrc="item.img" />
                             </div>
                         </template>
                     </div>
