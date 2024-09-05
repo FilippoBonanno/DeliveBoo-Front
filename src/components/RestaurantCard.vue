@@ -44,8 +44,8 @@ export default {
     <div class="card-container">
         <div class="image-container">
             <!-- <span class="typology-name">{{ typologyName }}</span> -->
-            <img :src="imageSrc"
-                :alt="restaurantName" /> <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
+            <img :src="imageSrc" :alt="restaurantName" />
+            <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
         </div>
         <p class="restaurant-name">{{ restaurantName }}</p>
     </div>
