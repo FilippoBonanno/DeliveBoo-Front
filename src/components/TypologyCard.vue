@@ -40,20 +40,12 @@ export default {
 
 <!-- RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
 <template>
-    <div class="d-flex flex-column align-items-center p-5">
+    
         <div class="image-container " :class="['typology-card', { selected: isChecked }]" @click="selected">
             <img
                 src="https://static.vecteezy.com/system/resources/previews/029/139/918/original/delicious-food-restaurant-food-top-view-food-with-transparent-background-ai-generative-free-png.png" />
         </div>
-        <div class="typology-name ">
-            {{ typologyName }}
-            <!-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                </label>
-            </div> -->
-        </div>
-    </div>
+        
 </template>
 
 <style scoped>

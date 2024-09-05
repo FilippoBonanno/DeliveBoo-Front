@@ -83,9 +83,18 @@ export default {
                         </div>
 
                         <template v-for="item in categories">
-                            <div>
+                            <div class="d-flex flex-column align-items-center p-5">
                                 <TypologyCard @click="getCategory(item.name)" :typologyName="item.name"
                                     :imageSrc="item.img" />
+
+                                <div class="typology-name ">
+                                    {{ item.name }}
+                                    <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                </label>
+            </div> -->
+                                </div>
                             </div>
                         </template>
                     </div>
@@ -127,4 +136,22 @@ export default {
     background-color: white !important;
     color: black !important;
 } */
+
+.typology-name {
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin-top: 5px;
+    font-family: "Permanent Marker";
+
+}
+
+.typology-card.selected {
+    transform: scale(1.1);
+    /* Effetto zoom */
+    box-shadow: 0 0 15px 5px rgba(32, 32, 32, 0.5);
+    /* Effetto luce gialla sotto */
+}
 </style>
