@@ -40,11 +40,13 @@ export default {
             }
         },
 
-        getSingleRestaurant() {
-            axios.get('http://localhost:8000/api/restaurants' + this.$route.params.id).then((response) => {
-                console.log(response);
+        getSingleRestaurant(id) {
+           router.push({
+                name: 'single-restaurant',
+                params: {id: id}
             })
-        }
+            }
+        
     },
 
     mounted() {
@@ -95,7 +97,10 @@ export default {
             <div class="row">
                 <div class="col-12 d-flex justify-content-center flex-wrap">
                     <template v-for="restaurant in this.restaurants">
-                        <RestaurantCard @click="getSingleRestaurant()" :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
+                        
+                        <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
+                            <RestaurantCard @click="getSingleRestaurant(restaurant.id)" :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
+                        </router-link>
                     </template>
                 </div>
             </div>
