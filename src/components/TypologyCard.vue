@@ -8,15 +8,6 @@ export default {
     },
 
     props: {
-        typologyName: {
-            type: String,
-            required: true,
-        },
-        imageSrc: {
-            type: String,
-            required: true,
-        },
-
     },
 
     data() {
@@ -40,12 +31,12 @@ export default {
 
 <!-- RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
 <template>
-    
-        <div class="image-container " :class="['typology-card', { selected: isChecked }]" @click="selected">
-            <img
-                src="https://static.vecteezy.com/system/resources/previews/029/139/918/original/delicious-food-restaurant-food-top-view-food-with-transparent-background-ai-generative-free-png.png" />
-        </div>
-        
+
+    <div class="image-container " :class="['typology-card', { selected: isChecked }]" @click="selected">
+        <img
+            src="https://static.vecteezy.com/system/resources/previews/029/139/918/original/delicious-food-restaurant-food-top-view-food-with-transparent-background-ai-generative-free-png.png" />
+    </div>
+
 </template>
 
 <style scoped>

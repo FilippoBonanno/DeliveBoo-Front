@@ -18,15 +18,21 @@ export default {
             categories: '',
             categoriesSelected: [],
             restaurants: '',
-            isLoading: true
+            isLoading: true,
+            notFound: false
         }
     },
 
     methods: {
         getRestaurants() {
             axios.get('http://localhost:8000/api/restaurants', { params: { categories: this.categoriesSelected } }).then((response) => {
-                console.log(response)
+                console.log(response.data)
                 this.restaurants = response.data;
+                if (!response.data[0]) {
+                    this.notFound = true;
+                }else{
+                    this.notFound = false;
+                }
             })
         },
 
@@ -84,8 +90,7 @@ export default {
 
                         <template v-for="item in categories">
                             <div class="d-flex flex-column align-items-center p-5">
-                                <TypologyCard @click="getCategory(item.name)" :typologyName="item.name"
-                                    :imageSrc="item.img" />
+                                <TypologyCard @click="getCategory(item.name)" />
 
                                 <div class="typology-name ">
                                     {{ item.name }}
@@ -112,7 +117,7 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center flex-wrap">
-                    <div v-if="restaurants == []">
+                    <div v-if="restaurants.length > 0">
                         <template v-for="restaurant in restaurants">
 
                             <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
@@ -121,8 +126,8 @@ export default {
                             </router-link>
                         </template>
                     </div>
-                    <div v-else>
-                        <h2>
+                    <div v-else-if="notFound">
+                        <h2 class="text-danger">
                             La richiesta fatta da costei non ha prodotto alcun risultato
                         </h2>
                     </div>

@@ -17,14 +17,9 @@ export default {
 
     props: {
         imageSrc: {
-            type: String,
             required: true,
         },
         restaurantName: {
-            type: String,
-            required: true,
-        },
-        typologyName: {
             type: String,
             required: true,
         },
