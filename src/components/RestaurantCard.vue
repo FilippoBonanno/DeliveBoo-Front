@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 
 export default {
     name: 'RestaurantCard',
@@ -41,11 +43,11 @@ export default {
 <template>
     <div class="card-container">
         <div class="image-container">
-            <span class="typology-name"><!--{{ typologyName }} --> text</span>
-            <img src="https://images.ctfassets.net/ihx0a8chifpc/JVN7uKOhy2mCHDoTg64ZR/faad2473a2d27e7be45393c5a1592a1a/assets.so-game-1280x720.png?w=1280&q=60&fm=webp"
+            <!-- <span class="typology-name">{{ typologyName }}</span> -->
+            <img :src="imageSrc"
                 :alt="restaurantName" /> <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
         </div>
-        <p class="restaurant-name"><!--{{ restaurantName }} --> RISTORANTE</p>
+        <p class="restaurant-name">{{ restaurantName }}</p>
     </div>
 </template>
 

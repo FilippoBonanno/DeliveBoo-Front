@@ -1,12 +1,14 @@
 <script>
 import axios from 'axios';
 import TypologyCard from './TypologyCard.vue';
+import RestaurantCard from './RestaurantCard.vue';
 
 export default {
     name: 'AppHome',
 
     components: {
         TypologyCard,
+        RestaurantCard,
     },
 
     data() {
@@ -36,6 +38,12 @@ export default {
                 this.categoriesSelected.push(name)
                 console.log(this.categoriesSelected)
             }
+        },
+
+        getSingleRestaurant() {
+            axios.get('http://localhost:8000/api/restaurants' + this.$route.params.id).then((response) => {
+                console.log(response);
+            })
         }
     },
 
@@ -85,9 +93,9 @@ export default {
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 d-flex justify-content-center flex-wrap">
                     <template v-for="restaurant in this.restaurants">
-                        <h1>{{ restaurant.name }}</h1>
+                        <RestaurantCard @click="getSingleRestaurant()" :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
                     </template>
                 </div>
             </div>
