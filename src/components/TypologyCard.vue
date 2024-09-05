@@ -40,17 +40,18 @@ export default {
 
 <!-- RICORDARE DI SOSTITUIRE GLI ESEMPI CON LE PROPS -->
 <template>
-    <div :class="['typology-card', { selected: isChecked }]" @click="selected">
-        <div class="image-container">
-            <img :src="imageSrc" :alt="typologyName" />
+    <div class="d-flex flex-column align-items-center p-5">
+        <div class="image-container " :class="['typology-card', { selected: isChecked }]" @click="selected">
+            <img
+                src="https://static.vecteezy.com/system/resources/previews/029/139/918/original/delicious-food-restaurant-food-top-view-food-with-transparent-background-ai-generative-free-png.png" />
         </div>
-        <div class="typology-name d-flex justify-content-center align-items-center flex-column">
+        <div class="typology-name ">
             {{ typologyName }}
-            <div class="form-check">
+            <!-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                 </label>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -101,7 +102,7 @@ export default {
 .typology-card.selected {
     transform: scale(1.1);
     /* Effetto zoom */
-    box-shadow: 0 0 15px 5px rgba(255, 193, 7, 0.5);
+    box-shadow: 0 0 15px 5px rgba(32, 32, 32, 0.5);
     /* Effetto luce gialla sotto */
 }
 </style>
