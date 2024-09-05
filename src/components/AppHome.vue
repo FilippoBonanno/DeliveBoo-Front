@@ -112,13 +112,21 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center flex-wrap">
-                    <template v-for="restaurant in this.restaurants">
+                    <div v-if="restaurants == []">
+                        <template v-for="restaurant in restaurants">
 
-                        <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
-                            <RestaurantCard @click="getSingleRestaurant(restaurant.id)"
-                                :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
-                        </router-link>
-                    </template>
+                            <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
+                                <RestaurantCard @click="getSingleRestaurant(restaurant.id)"
+                                    :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
+                            </router-link>
+                        </template>
+                    </div>
+                    <div v-else>
+                        <h2>
+                            La richiesta fatta da costei non ha prodotto alcun risultato
+                        </h2>
+                    </div>
+
                 </div>
             </div>
         </div>
