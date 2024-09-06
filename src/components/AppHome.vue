@@ -4,6 +4,7 @@ import TypologyCard from './TypologyCard.vue';
 import RestaurantCard from './RestaurantCard.vue';
 import skeleton from 'primevue/skeleton';
 
+
 export default {
     name: 'AppHome',
 
@@ -90,25 +91,20 @@ export default {
 
                         <template v-for="item in categories">
                             <div class="d-flex flex-column align-items-center p-5">
-                                <TypologyCard @click="getCategory(item.name)" />
-
-                                <div class="typology-name ">
-                                    {{ item.name }}
-                                    
-                                </div>
+                                <TypologyCard @selected="getCategory(item.name), getRestaurants()" :name="item.name" />
                             </div>
                         </template>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <button @click="getRestaurants()" class="btn btn-primary">Invia</button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="row">

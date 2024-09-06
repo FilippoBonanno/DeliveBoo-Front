@@ -13,6 +13,7 @@ export default {
             required: true,
         }
     },
+    emits: ['selected'],
 
     data() {
         return {
