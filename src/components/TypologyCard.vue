@@ -8,6 +8,10 @@ export default {
     },
 
     props: {
+        name: {
+            type: String,
+            required: true,
+        }
     },
 
     data() {
@@ -19,6 +23,7 @@ export default {
     methods: {
         selected() {
             this.isChecked = !this.isChecked;
+            this.$emit('selected');
         },
 
     },
@@ -36,6 +41,9 @@ export default {
         <img
             src="https://static.vecteezy.com/system/resources/previews/029/139/918/original/delicious-food-restaurant-food-top-view-food-with-transparent-background-ai-generative-free-png.png" />
     </div>
+    <div class="typology-name ">
+        {{ name }}
+    </div>
 
 </template>
 
@@ -46,7 +54,6 @@ export default {
     font-family: Arial, sans-serif;
     margin: 20px;
     cursor: pointer;
-    
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -87,7 +94,7 @@ export default {
     transform: scale(1.1);
     /* Effetto zoom */
     box-shadow: 0 0 15px 5px rgba(32, 32, 32, 0.5);
-    
+
     border: 5px solid yellowgreen;
 }
 </style>

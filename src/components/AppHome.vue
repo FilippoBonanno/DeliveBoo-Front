@@ -30,7 +30,7 @@ export default {
                 this.restaurants = response.data;
                 if (!response.data[0]) {
                     this.notFound = true;
-                }else{
+                } else {
                     this.notFound = false;
                 }
             })
@@ -90,12 +90,7 @@ export default {
 
                         <template v-for="item in categories">
                             <div class="d-flex flex-column align-items-center p-5">
-                                <TypologyCard @click="getCategory(item.name)" />
-
-                                <div class="typology-name ">
-                                    {{ item.name }}
-                                    
-                                </div>
+                                <TypologyCard @selected="getCategory(item.name)" :name="item.name" />
                             </div>
                         </template>
                     </div>
@@ -117,8 +112,8 @@ export default {
                         <template v-for="restaurant in restaurants">
 
                             <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
-                                <RestaurantCard @click="getSingleRestaurant(restaurant.id)"
-                                     :imageSrc="restaurant.img" :typologyName="restaurant.name" />
+                                <RestaurantCard @click="getSingleRestaurant(restaurant.id)" :imageSrc="restaurant.img"
+                                    :typologyName="restaurant.name" />
                             </router-link>
                         </template>
                     </div>
