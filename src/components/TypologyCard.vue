@@ -46,7 +46,7 @@ export default {
     font-family: Arial, sans-serif;
     margin: 20px;
     cursor: pointer;
-    border: 2px solid transparent;
+    
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -65,8 +65,9 @@ export default {
 }
 
 .image-container img {
-    width: 100%;
+    width: 135%;
     height: auto;
+    overflow: unset;
     border-radius: 10px;
 
 }
@@ -86,6 +87,7 @@ export default {
     transform: scale(1.1);
     /* Effetto zoom */
     box-shadow: 0 0 15px 5px rgba(32, 32, 32, 0.5);
-    /* Effetto luce gialla sotto */
+    
+    border: 5px solid yellowgreen;
 }
 </style>
