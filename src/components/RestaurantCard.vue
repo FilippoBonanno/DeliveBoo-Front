@@ -19,10 +19,11 @@ export default {
         imageSrc: {
             required: true,
         },
-        restaurantName: {
+        
+        typologyName: {
             type: String,
             required: true,
-        },
+        }
     },
 
     methods: {
@@ -38,22 +39,25 @@ export default {
 <template>
     <div class="card-container">
         <div class="image-container">
-            <!-- <span class="typology-name">{{ typologyName }}</span> -->
-            <img :src="imageSrc" :alt="restaurantName" />
+            <span class="typology-name">{{typologyName}}</span> 
+            <img :src="imageSrc"  />
             <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
         </div>
-        <p class="restaurant-name">{{ restaurantName }}</p>
+        
     </div>
 </template>
 
 <style scoped>
 .card-container {
     width: 250px;
+    height: 150px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
+    margin: 30px 20px;
 }
 
 .image-container {
+    width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;

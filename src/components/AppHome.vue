@@ -94,11 +94,7 @@ export default {
 
                                 <div class="typology-name ">
                                     {{ item.name }}
-                                    <!-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" :checked="isChecked" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                </label>
-            </div> -->
+                                    
                                 </div>
                             </div>
                         </template>
@@ -122,7 +118,7 @@ export default {
 
                             <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
                                 <RestaurantCard @click="getSingleRestaurant(restaurant.id)"
-                                    :restaurantName="restaurant.name" :imageSrc="restaurant.img" />
+                                     :imageSrc="restaurant.img" :typologyName="restaurant.name" />
                             </router-link>
                         </template>
                     </div>
