@@ -20,8 +20,12 @@ export default {
             required: true,
         },
         
-        typologyName: {
+        restaurantName: {
             type: String,
+            required: true,
+        },
+        restaurant: {
+            type: Object,
             required: true,
         }
     },
@@ -39,10 +43,18 @@ export default {
 <template>
     <div class="card-container">
         <div class="image-container">
-            <span class="typology-name">{{typologyName}}</span> 
+            <span class="typology-name">
+                
+                <template v-for="category in restaurant.categories">
+                {{  category.name  }} <br>
+                </template>
+            </span> 
             <img :src="imageSrc"  />
+            
+            
             <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
         </div>
+        <h3 class="restaurant-name">{{ restaurantName }}</h3>
         
     </div>
 </template>
@@ -52,7 +64,7 @@ export default {
     width: 250px;
     height: 150px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 30px 20px;
+    margin: 40px 20px;
 }
 
 .image-container {
@@ -84,7 +96,7 @@ export default {
 .restaurant-name {
     margin-top: 10px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Permanent Marker";
     color: #000;
     text-align: start;
@@ -96,5 +108,11 @@ export default {
 img {
     width: 100%;
     height: 100%;
+}
+
+.restaurant-name {
+    color: #000;
+    text-align: start;
+    margin-top: 10px;
 }
 </style>
