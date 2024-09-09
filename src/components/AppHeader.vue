@@ -27,6 +27,11 @@ export default {
             return cart.length;
         }
     },
+    computed: {
+        setCounter() {
+            return this.countItems();
+        }
+    },
 
     mounted() {
 

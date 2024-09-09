@@ -17,6 +17,7 @@ export default {
 
     methods: {
         handleAddToCart(dish) {
+            // store.ownerCheck();
             store.addToCart(dish);
         }
 

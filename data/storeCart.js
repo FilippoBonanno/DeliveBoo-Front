@@ -5,11 +5,29 @@ export const store = reactive({
   //Variabili
   cart: JSON.parse(localStorage.getItem("cart")) || [],
 
+  initialOwner: null,
+  currentOwner: null,
+
   //Funzioni
   addToCart(product) {
-    this.cart.push(product);
-
-    console.log(this.cart);
+    // this.currentOwner = product.restaurant;
+    console.log(product.restaurant_id);
+    // inizializzo il current owner
+    this.currentOwner = product.restaurant_id;
+    // verifico che l'initial owner sia diverso da null
+    if (this.initialOwner === null) {
+      this.initialOwner = product.restaurant_id;
+      this.cart.push(product);
+      // verifico che l'initial owner e' diverso dal current owner
+    } else if (this.initialOwner !== product.restaurant_id) {
+      this.cart = [];
+      //resetto l'initial owner
+      this.initialOwner = product.restaurant_id;
+      this.cart.push(product);
+      // se l'initial owner e' uguale al current owner aggiungo il prodotto al carrello
+    } else {
+      this.cart.push(product);
+    }
 
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
