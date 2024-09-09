@@ -1,11 +1,12 @@
 <script>
 import axios from 'axios';
+import { store } from '../../data/storeCart.js';
 
 export default {
     name: 'AppSingleRestaurant',
 
     components: {
-
+        store
     },
 
     data() {
@@ -15,6 +16,9 @@ export default {
     },
 
     methods: {
+        handleAddToCart(dish) {
+            store.addToCart(dish);
+        }
 
     },
 
@@ -24,6 +28,7 @@ export default {
             this.restaurant = response.data;
             console.log(this.restaurant);
         });
+        console.log(store.getCart(), 'cart');
     }
 }
 </script>
@@ -36,7 +41,7 @@ export default {
             <h2>Menù</h2>
         </div>
         <div class="menu-items">
-            <div class="menu-item" v-for="dish in this.restaurant.dishes">
+            <div class="menu-item" v-for="dish in this.restaurant.dishes" @click="handleAddToCart(dish)">
                 <h3>{{ dish.name }}</h3>
                 <p>{{ dish.description }}</p>
                 <span class="price">{{ dish.price }} €</span>

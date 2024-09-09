@@ -8,6 +8,9 @@ export const store = reactive({
   //Funzioni
   addToCart(product) {
     this.cart.push(product);
+
+    console.log(this.cart);
+
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
   removeFromCart(productId) {
