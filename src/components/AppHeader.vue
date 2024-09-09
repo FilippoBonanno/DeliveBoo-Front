@@ -33,7 +33,7 @@ export default {
                 <div class="col-12 h-100 d-flex justify-content-between align-items-center">
                     <div class="h-100 d-flex align-items-center">
                         <img src="../assets/img/Deliveboo-logo-Byke.png">
-                        <h1 class="title-logo ms-3 mb-0">DeliveBoo</h1>
+                        <h1 class="title-logo ms-3 mb-0 animate__animated animate__lightSpeedInLeft">DeliveBoo</h1>
                     </div>
                     <div class="d-flex">
                         <div class="me-3 btn custom-btn">
