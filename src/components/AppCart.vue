@@ -38,9 +38,6 @@ export default {
             }
             return sum.toFixed(2);
         },
-        getPrice(price) {
-            return price.toFixed(2);
-        }
 
     },
     computed: {
