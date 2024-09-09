@@ -30,10 +30,10 @@ export default {
     <header class="orange mb-5">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-12 h-100 d-flex justify-content-between align-items-center">
-                    <div class="h-100 d-flex align-items-center">
+                <div class="col-12 h-100 d-flex justify-content-between align-items-center ">
+                    <div class="h-100 d-flex align-items-center animate__animated animate__lightSpeedInLeft">
                         <img src="../assets/img/Deliveboo-logo-Byke.png">
-                        <h1 class="title-logo ms-3 mb-0 animate__animated animate__lightSpeedInLeft">DeliveBoo</h1>
+                        <h1 class="title-logo ms-3 mb-0">DeliveBoo</h1>
                     </div>
                     <div class="d-flex">
                         <div class="me-3 btn custom-btn">
