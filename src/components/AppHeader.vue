@@ -52,7 +52,6 @@ export default {
                             data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
-                            <!-- SOSTITUIRE CON N PRODOTTI -->
                         </div>
                         <AppCart />
                     </div>
