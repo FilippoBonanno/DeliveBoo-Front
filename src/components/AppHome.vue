@@ -50,10 +50,10 @@ export default {
             }
         },
 
-        getSingleRestaurant(id) {
+        getSingleRestaurant(slug) {
             router.push({
                 name: 'single-restaurant',
-                params: { id: id }
+                params: { slug: slug }
             })
         }
 
@@ -104,8 +104,9 @@ export default {
                     <div v-if="restaurants.length > 0">
                         <template v-for="restaurant in restaurants">
 
-                            <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
-                                <RestaurantCard @click="getSingleRestaurant(restaurant.id)" :imageSrc="restaurant.img"
+                            <router-link class="btn"
+                                :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
+                                <RestaurantCard @click="getSingleRestaurant(restaurant.slug)" :imageSrc="restaurant.img"
                                     :restaurantName="restaurant.name" :restaurant="restaurant" />
                             </router-link>
                         </template>
