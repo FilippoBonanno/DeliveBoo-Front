@@ -15,16 +15,16 @@ export default {
     },
 
     methods: {
-        getCart() {
-            console.log(store.getCart(), 'cart');
+        handleGetCart() {
+            // console.log(store.getCart(), 'cart');
             return store.getCart();
         },
         handleRemoveFromCart(itemid) {
             store.removeFromCart(itemid);
-            console.log(store.getCart(), 'cart');
+            // console.log(store.getCart(), 'cart');
         },
         handleClearCart() {
-            console.log(store.getCart(), 'cart');
+            // console.log(store.getCart(), 'cart');
             store.clearCart();
         },
         getTotalPrice() {
@@ -34,7 +34,7 @@ export default {
                 //convertire il numero in stringa in numero decimale
                 cart[i].price = parseFloat(cart[i].price);
                 sum += cart[i].price;
-                console.log(this.cart[i].price, sum);
+                // console.log(this.cart[i].price, sum);
             }
             return sum.toFixed(2);
         },
@@ -47,7 +47,7 @@ export default {
     },
 
     mounted() {
-        console.log(store.getCart(), 'cart');
+        // console.log(store.getCart(), 'cart');
     }
 }
 </script>
@@ -60,7 +60,8 @@ export default {
     <div class="offcanvas bg-dark text-white offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false"
         tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <h5 v-if="getCart().length == 0" class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo Carrello
+            <h5 v-if="handleGetCart().length == 0" class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo
+                Carrello
                 e' Vuoto
             </h5>
             <h5 v-else class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo Carrello</h5>
@@ -70,32 +71,35 @@ export default {
 
             <div class="offcanvas-body">
                 <!-- Placeholder prodotti nel carrello -->
-                <ul class="list-group mb-3" v-if="getCart().length !== 0">
+                <ul class="list-group mb-3" v-if="handleGetCart().length !== 0">
                     <li class="list-group-item d-flex justify-content-between align-items-center"
-                        v-for="item in getCart()">
+                        v-for="item in handleGetCart()">
                         <div>
                             <h6 class="my-0">{{ item.name }}</h6>
-                            <small class="text-muted">Descrizione breve</small>
+                            <small class="text-muted">{{ item.description }}</small>
                             <div @click="handleRemoveFromCart(item.id)"><small
                                     class="text-muted mt-1 btn btn-danger">Elimina</small></div>
                         </div>
                         <span class="text-muted">€{{ parseFloat(item.price).toFixed(2) }}</span>
                     </li>
                 </ul>
-                <div v-if="getCart().length !== 0" @click="handleClearCart()"><small
-                        class="text-muted mt-1 btn btn-danger">Svuota Carrello</small>
-                </div>
-                <!-- Totale del carrello -->
-                <div v-if="getCart().length !== 0" class="d-flex justify-content-between">
-                    <strong>Totale:</strong>
-                    <span>€{{ getTotalPrice() }}</span>
+                <div v-if="handleGetCart().length !== 0">
+                    <div @click="handleClearCart()"><small class="text-muted mt-1 btn btn-danger">Svuota
+                            Carrello</small>
+                    </div>
+                    <!-- Totale del carrello -->
+                    <div class="d-flex justify-content-between">
+                        <strong>Totale:</strong>
+                        <span>€{{ getTotalPrice() }}</span>
+                    </div>
+
+                    <!-- Pulsante per procedere al checkout -->
+                    <div class="mt-3">
+                        <button class="btn btn-primary checkout w-100" type="button">Procedi al
+                            Checkout</button>
+                    </div>
                 </div>
 
-                <!-- Pulsante per procedere al checkout -->
-                <div v-if="getCart().length !== 0" class="mt-3">
-                    <button class="btn btn-primary checkout w-100" type="button">Procedi al
-                        Checkout</button>
-                </div>
             </div>
 
         </div>
