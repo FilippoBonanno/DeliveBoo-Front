@@ -65,7 +65,8 @@ export default {
             this.categories = response.data;
             console.log(this.categories)
             this.isLoading = false
-        })
+        }),
+            this.getRestaurants();
     }
 }
 </script>
