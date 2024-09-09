@@ -17,7 +17,6 @@ export default {
 
     methods: {
         handleAddToCart(dish) {
-            // store.ownerCheck();
             store.addToCart(dish);
         }
 
@@ -45,7 +44,8 @@ export default {
             <div class="menu-item" v-for="dish in this.restaurant.dishes">
                 <h3>{{ dish.name }}</h3>
                 <p>{{ dish.description }}</p>
-                <div class="d-flex justify-content-between"><span class="price">{{ dish.price }} €</span>
+                <div class="d-flex justify-content-between"><span class="price">{{ parseFloat(dish.price).toFixed(2) }}
+                        €</span>
                     <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
                 </div>
 

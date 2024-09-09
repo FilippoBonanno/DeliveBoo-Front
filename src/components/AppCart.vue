@@ -33,7 +33,10 @@ export default {
             for (let i = 0; i < cart.length; i++) {
                 //convertire il numero in stringa in numero decimale
                 cart[i].price = parseFloat(cart[i].price);
-                sum += cart[i].price;
+                //moltiplico per la quantita'
+                // console.log(cart[i].price, cart[i].quantity);
+                let priceQuantity = cart[i].price * cart[i].quantity;
+                sum += priceQuantity;
                 // console.log(this.cart[i].price, sum);
             }
             return sum.toFixed(2);
@@ -75,7 +78,11 @@ export default {
                     <li class="list-group-item d-flex justify-content-between align-items-center"
                         v-for="item in handleGetCart()">
                         <div>
-                            <h6 class="my-0">{{ item.name }}</h6>
+                            <div class="d-flex justify-content-between">
+                                <h6 class="my-0">{{ item.name }} </h6>
+                                <h6>x{{ item.quantity }}</h6>
+                            </div>
+
                             <small class="text-muted">{{ item.description }}</small>
                             <div @click="handleRemoveFromCart(item.id)"><small
                                     class="text-muted mt-1 btn btn-danger">Elimina</small></div>
