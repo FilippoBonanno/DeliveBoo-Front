@@ -4,6 +4,7 @@ import AppProva from "./components/AppProva.vue";
 import AppSingleRestaurant from "./components/AppSingleRestaurant.vue";
 import RestaurantCard from "./components/RestaurantCard.vue";
 import TypologyCard from "./components/TypologyCard.vue";
+import Payment from "./components/Payment.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -37,6 +38,12 @@ const router = createRouter({
             path: '/RestaurantCard',
             name: 'RestaurantCard',
             component: RestaurantCard
+        },
+
+        {
+            path: '/Checkout',
+            name: 'Payment',
+            component: Payment
         },
 
     ]
