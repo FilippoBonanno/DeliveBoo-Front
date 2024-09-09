@@ -1,16 +1,33 @@
 <script>
+import { store } from '../../data/storeCart.js'
 import axios from 'axios';
 export default {
     name: 'AppSingleRestaurant',
     components: {
+        store
     },
     data() {
         return {
             token: null,
             dropinInstance: null,
+            store: store
         }
     },
     methods: {
+        getTotalPrice() {
+            let sum = 0;
+            let cart = store.getCart()
+            for (let i = 0; i < cart.length; i++) {
+                //convertire il numero in stringa in numero decimale
+                cart[i].price = parseFloat(cart[i].price);
+                //moltiplico per la quantita'
+                // console.log(cart[i].price, cart[i].quantity);
+                let priceQuantity = cart[i].price * cart[i].quantity;
+                sum += priceQuantity;
+                // console.log(this.cart[i].price, sum);
+            }
+            return sum.toFixed(2);
+        }
     }
     ,
     mounted() {
@@ -50,6 +67,8 @@ export default {
                                 // Nonce
                                 document.getElementById('nonce').value = payload.nonce;
 
+                                document.getElementById('amount').value = this.getTotalPrice();
+
                                 // Form submit
                                 this.$refs.form.submit();
                             });
@@ -66,10 +85,11 @@ export default {
 <template>
 
     <form id="payment-form" action="http://localhost:8000/api/checkout" method="post" ref="form">
-
         <div class="container">
             <div class="col-md-6 offset-md-3">
-                <h1>Checkout</h1>
+                <h1>
+                    Totale: {{ getTotalPrice() }}€
+                </h1>
                 <div class="form-group">
                     <label for="email">Indirizzo Email<span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email">
@@ -138,15 +158,16 @@ export default {
 
                 <input type="hidden" id="nonce" name="payment_method_nonce" />
                 <input name="device_data" type="hidden" id="device">
+                <input name="amount" type="hidden" id="amount">
+
             </div>
         </div>
-
     </form>
 
 </template>
 
 <style scoped>
-#payment-form{
-    margin-top:5rem;
+#payment-form {
+    margin-top: 5rem;
 }
 </style>

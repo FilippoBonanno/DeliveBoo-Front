@@ -111,8 +111,11 @@ export default {
 
                     <!-- Pulsante per procedere al checkout -->
                     <div class="mt-3">
-                        <button class="btn btn-primary checkout w-100" type="button">Procedi al
-                            Checkout</button>
+                        <a href="http://localhost:5174/Checkout">
+                            <button class="btn btn-primary checkout w-100" type="button">Procedi al
+                                Checkout
+                            </button>
+                        </a>
                     </div>
                 </div>
 
