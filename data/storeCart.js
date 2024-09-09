@@ -18,7 +18,7 @@ export const store = reactive({
     if (this.initialOwner === null) {
       this.initialOwner = product.restaurant_id;
       this.cart.push(product);
-      // verifico che l'initial owner e' diverso dal current owner
+      // verifico che l'initial owner sia diverso dal current owner
     } else if (this.initialOwner !== product.restaurant_id) {
       this.cart = [];
       //resetto l'initial owner
