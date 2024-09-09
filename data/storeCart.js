@@ -46,6 +46,17 @@ export const store = reactive({
 
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
+
+  updateQuantity(productId, newQuantity) {
+    const product = this.cart.find((i) => i.id === productId);
+    if (product && newQuantity > 0) {
+      product.quantity = newQuantity;
+    } else if (product && newQuantity === 0) {
+      this.removeFromCart(productId);
+    }
+    localStorage.setItem("cart", JSON.stringify(this.cart));
+  },
+
   removeFromCart(productId) {
     const indexToRemove = this.cart.findIndex((item) => item.id === productId);
     if (indexToRemove !== -1) {

@@ -41,6 +41,9 @@ export default {
             }
             return sum.toFixed(2);
         },
+        handleUpdateQuantity(itemid, quantity) {
+            store.updateQuantity(itemid, quantity);
+        }
 
     },
     computed: {
@@ -76,16 +79,22 @@ export default {
                 <!-- Placeholder prodotti nel carrello -->
                 <ul class="list-group mb-3" v-if="handleGetCart().length !== 0">
                     <li class="list-group-item d-flex justify-content-between align-items-center"
-                        v-for="item in handleGetCart()">
+                        v-for="item, i in handleGetCart()">
                         <div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="my-0">{{ item.name }} </h6>
-                                <h6>x{{ item.quantity }}</h6>
+                                <div class="d-flex align-items-center">
+                                    <button @click="handleUpdateQuantity(item.id, item.quantity + 1)"
+                                        class="btn btn-primary">+</button>
+                                    <h6>x{{ item.quantity }}</h6>
+                                    <button @click="handleUpdateQuantity(item.id, item.quantity - 1)"
+                                        class="btn btn-primary">-</button>
+                                </div>
                             </div>
 
                             <small class="text-muted">{{ item.description }}</small>
-                            <div @click="handleRemoveFromCart(item.id)"><small
-                                    class="text-muted mt-1 btn btn-danger">Elimina</small></div>
+                            <div><button @click="handleRemoveFromCart(item.id)"
+                                    class="text-muted mt-1 btn btn-danger">Elimina</button></div>
                         </div>
                         <span class="text-muted">€{{ parseFloat(item.price).toFixed(2) }}</span>
                     </li>
