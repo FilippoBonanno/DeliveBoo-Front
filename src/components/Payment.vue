@@ -71,33 +71,33 @@ export default {
             <div class="col-md-6 offset-md-3">
                 <h1>Checkout</h1>
                 <div class="form-group">
-                    <label for="email">Indirizzo Email</label>
+                    <label for="email">Indirizzo Email<span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="email">
                 </div>
 
                 <div class="form-group">
-                    <label for="name_on_card">Nome e Cognome</label>
+                    <label for="name_on_card">Nome e Cognome<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="name_on_card" name="name_on_card">
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="address">Indirizzo</label>
+                            <label for="address">Indirizzo<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="address" name="address">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="city">Città</label>
+                            <label for="city">Città<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="city" name="city">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="province">Provincia</label>
+                            <label for="province">Provincia<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="province" name="province">
                         </div>
                     </div>
@@ -107,14 +107,14 @@ export default {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="postalcode">Codice Postale</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode">
+                            <label for="postalcode">Codice Postale<span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="postalcode" name="postalcode">
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="country">Paese</label>
+                            <label for="country">Paese<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="country" name="country">
                         </div>
                     </div>
