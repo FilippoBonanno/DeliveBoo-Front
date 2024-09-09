@@ -1,17 +1,20 @@
 <script>
 import axios from 'axios';
 import { store } from '../../data/storeCart.js';
+import Skeleton from 'primevue/skeleton';
 
 export default {
     name: 'AppSingleRestaurant',
 
     components: {
-        store
+        store,
+        Skeleton
     },
 
     data() {
         return {
             restaurant: '',
+            isLoading: true
         }
     },
 
@@ -27,6 +30,7 @@ export default {
             console.log(response);
             this.restaurant = response.data;
             console.log(this.restaurant);
+            this.isLoading = false
         });
         console.log(store.getCart(), 'cart');
     }
@@ -37,23 +41,37 @@ export default {
 
     <div class="menu-section mt-5">
         <div class="title-section d-flex flex-column">
-            <h1>{{ this.restaurant.name }}</h1>
+            <div v-if="isLoading">
+                <Skeleton height="3rem" width="15rem" class="mb-2" borderRadius="16px"></Skeleton>
+            </div>
+            <h1 v-else>{{ this.restaurant.name }}</h1>
             <h2>Menù</h2>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <div class="menu-items d-flex">
-                        <div class="menu-item me-3 ms-3" v-for="dish in this.restaurant.dishes">
-                            <h3>{{ dish.name }}</h3>
-                            <p>{{ dish.description }}</p>
-                            <div class="d-flex justify-content-between"><span class="price">{{ parseFloat(dish.price).toFixed(2) }}
-                                    €</span>
-                                <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                        <template v-if="isLoading == false">
+                            <div class="menu-item me-3 ms-3" v-for="dish in this.restaurant.dishes">
+                                <h3>{{ dish.name }}</h3>
+                                <p>{{ dish.description }}</p>
+                                <div class="d-flex justify-content-between"><span class="price">{{
+                                    parseFloat(dish.price).toFixed(2) }}
+                                        €</span>
+                                    <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                                </div>
+
+                                <img :src="dish.img" :alt="dish.name" />
                             </div>
-            
-                            <img :src="dish.img" :alt="dish.name" />
-                        </div>
+                        </template>
+                        <template v-else v-for="x in 3">
+                            <div class="d-fllex me-3 ms-3 flex-wrap justify-content-between">
+                                <skeleton shape="square" size="22.5rem" class="ms-2"></skeleton>
+                            </div>
+
+                        </template>
+
+
                     </div>
                 </div>
             </div>
