@@ -52,7 +52,7 @@ export default {
                             data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
                             aria-labelledby="offcanvasScrollingLabel">
                             <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Il tuo Carrello
+                                <h5 class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo Carrello
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                     aria-label="Close"></button>
@@ -139,6 +139,7 @@ header {
     top: 5rem !important;
     background-color: #F46036 !important;
 }
+
 
 .h-100 {
     height: 100%;
