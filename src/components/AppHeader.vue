@@ -1,5 +1,6 @@
 <script>
 import AppCart from './AppCart.vue';
+import { store } from '../../data/storeCart.js';
 
 
 export default {
@@ -7,7 +8,7 @@ export default {
 
     components: {
         AppCart,
-
+        store
     },
 
     data() {
@@ -20,6 +21,10 @@ export default {
         getImg(path) {
             let risultato = new URL("../assets/img/" + path, import.meta.url);
             return risultato.href;
+        },
+        countItems() {
+            let cart = store.getCart();
+            return cart.length;
         }
     },
 
@@ -46,7 +51,7 @@ export default {
                         <div class=" cart-btn" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="badge badge-cart">3 </span>
+                            <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
                             <!-- SOSTITUIRE CON N PRODOTTI -->
                         </div>
                         <AppCart />

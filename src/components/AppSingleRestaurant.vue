@@ -41,10 +41,13 @@ export default {
             <h2>Menù</h2>
         </div>
         <div class="menu-items">
-            <div class="menu-item" v-for="dish in this.restaurant.dishes" @click="handleAddToCart(dish)">
+            <div class="menu-item" v-for="dish in this.restaurant.dishes">
                 <h3>{{ dish.name }}</h3>
                 <p>{{ dish.description }}</p>
-                <span class="price">{{ dish.price }} €</span>
+                <div class="d-flex justify-content-between"><span class="price">{{ dish.price }} €</span>
+                    <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                </div>
+
                 <img :src="dish.img" :alt="dish.name" />
             </div>
         </div>
@@ -87,17 +90,21 @@ h2 {
 .menu-item {
     max-width: 300px;
     text-align: left;
+    border-radius: 10px;
+    background-color: #5B85AA;
+    color: white;
 }
 
 .menu-item h3 {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 0.5rem 0.5rem 1rem;
 }
 
 .menu-item p {
     font-size: 14px;
-    color: #666;
+    color: #ffffff;
+    margin-left: 0.5rem;
     margin-bottom: 15px;
 }
 
