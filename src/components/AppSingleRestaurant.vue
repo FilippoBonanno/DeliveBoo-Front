@@ -30,7 +30,7 @@ export default {
 
 <template>
 
-    <div class="menu-section">
+    <div class="menu-section mt-5">
         <div class="title-section d-flex flex-column">
             <h1>{{ this.restaurant.name }}</h1>
             <h2>Menù</h2>
@@ -39,11 +39,11 @@ export default {
             <div class="menu-item" v-for="dish in this.restaurant.dishes">
                 <h3>{{ dish.name }}</h3>
                 <p>{{ dish.description }}</p>
-                <span class="price">{{ dish.price }} €</span> 
+                <span class="price">{{ dish.price }} €</span>
                 <img :src="dish.img" :alt="dish.name" />
             </div>
         </div>
-        
+
     </div>
 
 
@@ -56,6 +56,7 @@ export default {
     text-align: center;
     padding: 50px 0;
     background-color: #f8f8f8;
+
 }
 
 .title-section {
@@ -108,5 +109,4 @@ h2 {
     font-size: 14px;
     font-weight: bold;
 }
-
 </style>
