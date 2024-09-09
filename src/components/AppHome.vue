@@ -31,7 +31,7 @@ export default {
                 this.restaurants = response.data;
                 if (!response.data[0]) {
                     this.notFound = true;
-                }else{
+                } else {
                     this.notFound = false;
                 }
             })
@@ -72,16 +72,7 @@ export default {
 
 <template>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div>
-                        <h1>Scegli cosa mangiare</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
+        <div class="container TypologyContainer">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <div class="d-flex flex-wrap justify-content-center">
@@ -113,8 +104,8 @@ export default {
                         <template v-for="restaurant in restaurants">
 
                             <router-link class="btn" :to="{ name: 'single-restaurant', params: { id: restaurant.id } }">
-                                <RestaurantCard  @click="getSingleRestaurant(restaurant.id)"
-                                     :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant"/>
+                                <RestaurantCard @click="getSingleRestaurant(restaurant.id)" :imageSrc="restaurant.img"
+                                    :restaurantName="restaurant.name" :restaurant="restaurant" />
                             </router-link>
                         </template>
                     </div>
@@ -141,6 +132,11 @@ export default {
     background-color: white !important;
     color: black !important;
 } */
+
+.TypologyContainer {
+    margin-top: 5rem;
+
+}
 
 .typology-name {
     border-radius: 10px;
