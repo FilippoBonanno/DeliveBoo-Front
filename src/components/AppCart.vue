@@ -82,7 +82,7 @@ export default {
                             <div @click="handleRemoveFromCart(item.id)"><small
                                     class="text-muted mt-1 btn btn-danger">Elimina</small></div>
                         </div>
-                        <span class="text-muted">€{{ getPrice(item.price) }}</span>
+                        <span class="text-muted">€{{ item.price }}</span>
                     </li>
                 </ul>
                 <div v-if="getCart().length !== 0" @click="handleClearCart()"><small
