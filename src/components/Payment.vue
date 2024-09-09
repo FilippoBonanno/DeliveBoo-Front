@@ -145,4 +145,8 @@ export default {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+#payment-form{
+    margin-top:5rem;
+}
+</style>
