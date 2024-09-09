@@ -14,8 +14,13 @@ export const store = reactive({
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
   removeFromCart(productId) {
-    this.cart = this.cart.filter((item) => item.id !== productId);
-    localStorage.setItem("cart", JSON.stringify(this.cart));
+    const indexToRemove = this.cart.findIndex((item) => item.id === productId);
+    if (indexToRemove !== -1) {
+      this.cart.splice(indexToRemove, 1);
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+    } else {
+      console.error(`Product with id ${productId} not found in the cart.`);
+    }
   },
   clearCart() {
     this.cart = [];

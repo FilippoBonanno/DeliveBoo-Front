@@ -1,3 +1,44 @@
+<script>
+import { store } from '../../data/storeCart.js';
+
+export default {
+    name: 'AppSingleRestaurant',
+
+    components: {
+        store
+    },
+
+    data() {
+        return {
+            cart: store.getCart(),
+        }
+    },
+
+    methods: {
+        getCart() {
+            console.log(store.getCart(), 'cart');
+            return store.getCart();
+        },
+        handleRemoveFromCart(itemid) {
+            store.removeFromCart(itemid);
+            console.log(store.getCart(), 'cart');
+        },
+        handleClearCart() {
+            console.log(store.getCart(), 'cart');
+            store.clearCart();
+        }
+
+    },
+
+    mounted() {
+        console.log(store.getCart(), 'cart');
+    }
+}
+</script>
+
+
+
+
 <template>
     <!-- DATI CONTENENTI IL CARRELLO -->
     <div class="offcanvas bg-dark text-white offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false"
@@ -11,30 +52,20 @@
 
             <div class="offcanvas-body">
                 <!-- Placeholder prodotti nel carrello -->
-                <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                <ul class="list-group mb-3" v-if="getCart() !== []">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                        v-for="item, i in getCart()">
                         <div>
-                            <h6 class="my-0">Prodotto 1</h6>
+                            <h6 class="my-0">{{ item.name }}</h6>
                             <small class="text-muted">Descrizione breve</small>
+                            <div @click="handleRemoveFromCart(item.id)"><small
+                                    class="text-muted mt-1 btn btn-danger">Elimina</small></div>
                         </div>
-                        <span class="text-muted">€10.00</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="my-0">Prodotto 2</h6>
-                            <small class="text-muted">Descrizione breve</small>
-                        </div>
-                        <span class="text-muted">€15.00</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="my-0">Prodotto 3</h6>
-                            <small class="text-muted">Descrizione breve</small>
-                        </div>
-                        <span class="text-muted">€7.50</span>
+                        <span class="text-muted">€{{ item.price }}</span>
                     </li>
                 </ul>
-
+                <div @click="handleClearCart()"><small class="text-muted mt-1 btn btn-danger">Elimina</small>
+                </div>
                 <!-- Totale del carrello -->
                 <div class="d-flex justify-content-between">
                     <strong>Totale:</strong>
