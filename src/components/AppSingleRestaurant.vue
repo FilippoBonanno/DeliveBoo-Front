@@ -40,16 +40,22 @@ export default {
             <h1>{{ this.restaurant.name }}</h1>
             <h2>Menù</h2>
         </div>
-        <div class="menu-items">
-            <div class="menu-item" v-for="dish in this.restaurant.dishes">
-                <h3>{{ dish.name }}</h3>
-                <p>{{ dish.description }}</p>
-                <div class="d-flex justify-content-between"><span class="price">{{ parseFloat(dish.price).toFixed(2) }}
-                        €</span>
-                    <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="menu-items d-flex">
+                        <div class="menu-item me-3 ms-3" v-for="dish in this.restaurant.dishes">
+                            <h3>{{ dish.name }}</h3>
+                            <p>{{ dish.description }}</p>
+                            <div class="d-flex justify-content-between"><span class="price">{{ parseFloat(dish.price).toFixed(2) }}
+                                    €</span>
+                                <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                            </div>
+            
+                            <img :src="dish.img" :alt="dish.name" />
+                        </div>
+                    </div>
                 </div>
-
-                <img :src="dish.img" :alt="dish.name" />
             </div>
         </div>
 
@@ -84,7 +90,7 @@ h2 {
 
 .menu-items {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin: 20px 0;
 }
 
