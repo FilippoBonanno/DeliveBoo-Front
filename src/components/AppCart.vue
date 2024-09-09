@@ -38,9 +38,6 @@ export default {
             }
             return sum.toFixed(2);
         },
-        getPrice(price) {
-            return price.toFixed(2);
-        }
 
     },
     computed: {
@@ -82,7 +79,7 @@ export default {
                             <div @click="handleRemoveFromCart(item.id)"><small
                                     class="text-muted mt-1 btn btn-danger">Elimina</small></div>
                         </div>
-                        <span class="text-muted">€{{ getPrice(item.price) }}</span>
+                        <span class="text-muted">€{{ parseFloat(item.price).toFixed(2) }}</span>
                     </li>
                 </ul>
                 <div v-if="getCart().length !== 0" @click="handleClearCart()"><small
