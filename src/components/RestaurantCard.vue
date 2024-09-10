@@ -12,15 +12,18 @@ export default {
 
 <template>
   <div class="card-container d-flex flex-column align-items-start">
-      <div class="image-container position-relative overflow-hidden rounded-3">
-          <img :src="restaurant.img" alt="Immagine ristorante" class="img-fluid" />
-          <div class="typology-name position-absolute bottom-0 start-0 bg-dark text-white p-2 rounded-2">
-              {{ restaurant.typology }}
-          </div>
+    <div class="image-container position-relative overflow-hidden rounded-3">
+      <img :src="restaurant.img" alt="Immagine ristorante" class="img-fluid" />
+      <div class="typology-name position-absolute bottom-0 start-0 bg-dark text-white p-2 rounded-2">
+        <div v-for="category in restaurant.categories">
+          {{ category.name }}
+        </div>
+
       </div>
-      <div class="restaurant-name mt-2 fw-bold fs-5">
-          {{ restaurant.name }}
-      </div>
+    </div>
+    <div class="restaurant-name mt-2 fw-bold fs-5">
+      {{ restaurant.name }}
+    </div>
   </div>
 </template>
 
