@@ -5,7 +5,7 @@ export const store = reactive({
   //Variabili
   cart: JSON.parse(localStorage.getItem("cart")) || [],
 
-  initialOwner: null,
+  initialOwner: JSON.parse(localStorage.getItem("initialOwner")) || null,
   currentOwner: null,
 
   //Funzioni
@@ -43,7 +43,7 @@ export const store = reactive({
         this.cart.push(product);
       }
     }
-
+    localStorage.setItem("initialOwner", JSON.stringify(this.initialOwner));
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
 
