@@ -1,63 +1,26 @@
 <script>
-import { RouterLink } from 'vue-router';
-
-
 export default {
-    name: 'RestaurantCard',
-
-    components: {
-
-    },
-
-    data() {
-        return {
-
-        }
-    },
-
-    props: {
-        imageSrc: {
-            required: true,
-        },
-
-        restaurantName: {
-            type: String,
-            required: true,
-        },
-        restaurant: {
-            type: Object,
-            required: true,
-        }
-    },
-
-    methods: {
-
-    },
-
-    mounted() {
-
+  props: {
+    restaurant: {
+      type: Object,
+      required: true
     }
-}
+  }
+};
 </script>
+
 
 <template>
     <div class="card-container">
-        <div class="image-container">
-            <span class="typology-name">
-
-                <template v-for="category in restaurant.categories">
-                    {{ category.name }} <br>
-                </template>
-            </span>
-            <img :src="imageSrc" />
-
-
-            <!-- RICORDARSI DI DECOMMENTARE LE PROPS       :src="imageSrc"    -->
-        </div>
-        <h3 class="restaurant-name">{{ restaurantName }}</h3>
-
+      <div class="image-container">
+        <img :src="restaurant.img" alt="Immagine ristorante" />
+        <div class="typology-name">{{ restaurant.typology }}</div>
+      </div>
+      <div class="restaurant-name">{{ restaurant.name }}</div>
     </div>
-</template>
+  </template>
+  
+  
 
 <style scoped>
 .card-container {
