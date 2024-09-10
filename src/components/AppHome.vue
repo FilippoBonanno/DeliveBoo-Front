@@ -75,42 +75,27 @@ export default {
         <Jumbotrone @arraySent="handleEmit" />
 
 
-        <!-- <div class="container TypologyContainer">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="d-flex flex-wrap justify-content-center">
-                        <div v-if="isLoading" v-for="item in 11" class="d-flex p-2">
-                            <skeleton shape="circle" size="7rem" class="mr-2"></skeleton>
-                        </div>
-
-                        <template v-for="item in categories">
-                            <div class="d-flex flex-column align-items-center p-2">
-                                <TypologyCard @selected="getCategory(item.name), getRestaurants()" :name="item.name" />
-                            </div>
-                        </template>
-</div>
-</div>
-</div>
-</div> -->
-
-
         <div class="container">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center flex-wrap">
                     <div v-if="restaurants.length > 0">
                         <template v-for="restaurant in restaurants">
 
-                            <router-link class="btn"
+                            <router-link v-if="!isLoading" class="btn"
                                 :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
                                 <RestaurantCard @click="getSingleRestaurant(restaurant.slug)" :imageSrc="restaurant.img"
                                     :restaurantName="restaurant.name" :restaurant="restaurant" />
                             </router-link>
+
                         </template>
                     </div>
                     <div v-else-if="notFound">
                         <h2 class="text-danger">
                             La richiesta fatta da costei non ha prodotto alcun risultato
                         </h2>
+                    </div>
+                    <div v-for="x in 8" v-if="isLoading" class="d-flex m-3">
+                        <skeleton shape="square" size="15rem" class="ms-2"></skeleton>
                     </div>
 
                 </div>

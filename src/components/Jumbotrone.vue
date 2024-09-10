@@ -79,11 +79,11 @@ export default {
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <div class="d-flex flex-wrap justify-content-center">
-                    <div v-if="isLoading" v-for="item in 11" class="d-flex p-2">
-                        <skeleton shape="circle" size="7rem" class="mr-2"></skeleton>
+                    <div v-if="isLoading" class="d-flex p-2" v-for="item in 11">
+                        <skeleton height="2.5rem" width="7rem" class="mb-2" borderRadius="16px"></skeleton>
                     </div>
 
-                    <template v-for="item in categories">
+                    <template v-else v-for="item in categories">
                         <div class="d-flex flex-column align-items-center p-2">
                             <TypologyCard @selected="getCategory(item.name)" :name="item.name" />
                         </div>
