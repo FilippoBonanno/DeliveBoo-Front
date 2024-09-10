@@ -96,8 +96,8 @@ export default {
                 </div>
 
                 <div class="form-group">
-                    <label for="name_on_card">Nome e Cognome<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="name_on_card" name="name_on_card">
+                    <label for="name">Nome e Cognome<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name">
                 </div>
 
                 <div class="row">
