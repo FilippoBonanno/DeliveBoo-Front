@@ -3,6 +3,7 @@ import axios from 'axios';
 import TypologyCard from './TypologyCard.vue';
 import RestaurantCard from './RestaurantCard.vue';
 import skeleton from 'primevue/skeleton';
+import Jumbotrone from './Jumbotrone.vue';
 
 
 export default {
@@ -12,6 +13,7 @@ export default {
         TypologyCard,
         RestaurantCard,
         skeleton,
+        Jumbotrone
     },
 
     data() {
@@ -34,20 +36,9 @@ export default {
                 } else {
                     this.notFound = false;
                 }
-            })
-        },
-
-        getCategory(name) {
-
-            if (this.categoriesSelected.includes(name)) {
-                let x = this.categoriesSelected.indexOf(name)
-                this.categoriesSelected.splice(x, 1)
                 console.log(this.categoriesSelected);
-            } else {
-                console.log("cliccato", name)
-                this.categoriesSelected.push(name)
-                console.log(this.categoriesSelected)
-            }
+
+            })
         },
 
         getSingleRestaurant(slug) {
@@ -55,9 +46,15 @@ export default {
                 name: 'single-restaurant',
                 params: { slug: slug }
             })
-        }
+        },
 
+        handleEmit(categoriesSelected) {
+            console.log('arraySent', categoriesSelected)
+            this.categoriesSelected = categoriesSelected
+            this.getRestaurants();
+        }
     },
+
 
     mounted() {
         axios.get('http://localhost:8000/api/categories').then(response => {
@@ -73,30 +70,29 @@ export default {
 
 <template>
     <main>
-        <div class="container TypologyContainer">
+
+
+        <Jumbotrone @arraySent="handleEmit" />
+
+
+        <!-- <div class="container TypologyContainer">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <div class="d-flex flex-wrap justify-content-center">
-                        <div v-if="isLoading" v-for="item in 11" class="d-flex p-5 mb-1">
+                        <div v-if="isLoading" v-for="item in 11" class="d-flex p-2">
                             <skeleton shape="circle" size="7rem" class="mr-2"></skeleton>
                         </div>
 
                         <template v-for="item in categories">
-                            <div class="d-flex flex-column align-items-center p-5">
+                            <div class="d-flex flex-column align-items-center p-2">
                                 <TypologyCard @selected="getCategory(item.name), getRestaurants()" :name="item.name" />
                             </div>
                         </template>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <button @click="getRestaurants()" class="btn btn-primary">Invia</button>
-                </div>
-            </div>
-        </div> -->
+</div>
+</div>
+</div>
+</div> -->
+
 
         <div class="container">
             <div class="row">
