@@ -9,58 +9,57 @@ import PaymentSuccess from "./components/PaymentSuccess.vue";
 import PaymentDenied from "./components/PaymentDenied.vue";
 
 const router = createRouter({
-    history: createWebHistory(),
+  history: createWebHistory(),
 
-    routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: AppHome
-        },
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: AppHome,
+    },
 
-        {
-            path: '/prova',
-            name: 'prova',
-            component: AppProva
-        },
+    {
+      path: "/prova",
+      name: "prova",
+      component: AppProva,
+    },
 
-        {
-            path: '/TypologyCard',
-            name: 'TypologyCard',
-            component: TypologyCard
-        },
+    {
+      path: "/TypologyCard",
+      name: "TypologyCard",
+      component: TypologyCard,
+    },
 
-        {
-            path: '/restaurant/:id',
-            name: 'single-restaurant',
-            component: AppSingleRestaurant
-        },
+    {
+      path: "/restaurant/:slug",
+      name: "single-restaurant",
+      component: AppSingleRestaurant,
+    },
 
-        {
-            path: '/RestaurantCard',
-            name: 'RestaurantCard',
-            component: RestaurantCard
-        },
+    {
+      path: "/RestaurantCard",
+      name: "RestaurantCard",
+      component: RestaurantCard,
+    },
 
-        {
-            path: '/Checkout',
-            name: 'Payment',
-            component: Payment
-        },
+    {
+      path: "/Checkout",
+      name: "Payment",
+      component: Payment,
+    },
 
-        {
-            path: '/Checkout/Success',
-            name: 'PaymentSuccess',
-            component: PaymentSuccess
-        },
+    {
+      path: "/Checkout/Success",
+      name: "PaymentSuccess",
+      component: PaymentSuccess,
+    },
 
-        {
-            path: '/Checkout/Denied',
-            name: 'PaymentDenied',
-            component: PaymentDenied
-        },
-
-    ]
+    {
+      path: "/Checkout/Denied",
+      name: "PaymentDenied",
+      component: PaymentDenied,
+    },
+  ],
 });
 
 export { router };

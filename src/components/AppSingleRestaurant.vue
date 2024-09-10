@@ -26,7 +26,7 @@ export default {
     },
 
     mounted() {
-        axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.id).then((response) => {
+        axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug).then((response) => {
             console.log(response);
             this.restaurant = response.data;
             console.log(this.restaurant);
