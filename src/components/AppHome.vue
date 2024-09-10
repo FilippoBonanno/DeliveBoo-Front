@@ -36,20 +36,9 @@ export default {
                 } else {
                     this.notFound = false;
                 }
-            })
-        },
-
-        getCategory(name) {
-
-            if (this.categoriesSelected.includes(name)) {
-                let x = this.categoriesSelected.indexOf(name)
-                this.categoriesSelected.splice(x, 1)
                 console.log(this.categoriesSelected);
-            } else {
-                console.log("cliccato", name)
-                this.categoriesSelected.push(name)
-                console.log(this.categoriesSelected)
-            }
+
+            })
         },
 
         getSingleRestaurant(id) {
@@ -57,9 +46,15 @@ export default {
                 name: 'single-restaurant',
                 params: { id: id }
             })
-        }
+        },
 
+        handleEmit(categoriesSelected) {
+            console.log('arraySent', categoriesSelected)
+            this.categoriesSelected = categoriesSelected
+            this.getRestaurants();
+        }
     },
+
 
     mounted() {
         axios.get('http://localhost:8000/api/categories').then(response => {
@@ -77,7 +72,7 @@ export default {
     <main>
 
 
-        <Jumbotrone />
+        <Jumbotrone @arraySent="handleEmit" />
 
 
         <!-- <div class="container TypologyContainer">

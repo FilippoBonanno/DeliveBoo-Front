@@ -7,6 +7,10 @@ import skeleton from 'primevue/skeleton';
 export default {
     name: 'Jumbotrone',
 
+    // emits: {
+    //     selected,
+    // },
+
     components: {
         TypologyCard,
         RestaurantCard,
@@ -37,22 +41,7 @@ export default {
             }, 3000);
         },
 
-
-
-        getRestaurants() {
-            axios.get('http://localhost:8000/api/restaurants', { params: { categories: this.categoriesSelected } }).then((response) => {
-                console.log(response.data)
-                this.restaurants = response.data;
-                if (!response.data[0]) {
-                    this.notFound = true;
-                } else {
-                    this.notFound = false;
-                }
-            })
-        },
-
         getCategory(name) {
-
             if (this.categoriesSelected.includes(name)) {
                 let x = this.categoriesSelected.indexOf(name)
                 this.categoriesSelected.splice(x, 1)
@@ -62,16 +51,8 @@ export default {
                 this.categoriesSelected.push(name)
                 console.log(this.categoriesSelected)
             }
-        },
-
-        getSingleRestaurant(id) {
-            router.push({
-                name: 'single-restaurant',
-                params: { id: id }
-            })
+            this.$emit('arraySent', this.categoriesSelected)
         }
-
-
     },
 
     mounted() {
@@ -104,7 +85,7 @@ export default {
 
                     <template v-for="item in categories">
                         <div class="d-flex flex-column align-items-center p-2">
-                            <TypologyCard @selected="getCategory(item.name), getRestaurants()" :name="item.name" />
+                            <TypologyCard @selected="getCategory(item.name)" :name="item.name" />
                         </div>
                     </template>
                 </div>
