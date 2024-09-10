@@ -3,6 +3,7 @@ import axios from 'axios';
 import TypologyCard from './TypologyCard.vue';
 import RestaurantCard from './RestaurantCard.vue';
 import skeleton from 'primevue/skeleton';
+import Jumbotrone from './Jumbotrone.vue';
 
 
 export default {
@@ -12,6 +13,7 @@ export default {
         TypologyCard,
         RestaurantCard,
         skeleton,
+        Jumbotrone
     },
 
     data() {
@@ -73,30 +75,29 @@ export default {
 
 <template>
     <main>
-        <div class="container TypologyContainer">
+
+
+        <Jumbotrone />
+
+
+        <!-- <div class="container TypologyContainer">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center">
                     <div class="d-flex flex-wrap justify-content-center">
-                        <div v-if="isLoading" v-for="item in 11" class="d-flex p-5 mb-1">
+                        <div v-if="isLoading" v-for="item in 11" class="d-flex p-2">
                             <skeleton shape="circle" size="7rem" class="mr-2"></skeleton>
                         </div>
 
                         <template v-for="item in categories">
-                            <div class="d-flex flex-column align-items-center p-5">
+                            <div class="d-flex flex-column align-items-center p-2">
                                 <TypologyCard @selected="getCategory(item.name), getRestaurants()" :name="item.name" />
                             </div>
                         </template>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <button @click="getRestaurants()" class="btn btn-primary">Invia</button>
-                </div>
-            </div>
-        </div> -->
+</div>
+</div>
+</div>
+</div> -->
+
 
         <div class="container">
             <div class="row">
