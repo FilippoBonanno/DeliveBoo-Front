@@ -67,7 +67,11 @@ export default {
                                 // Nonce
                                 document.getElementById('nonce').value = payload.nonce;
 
-                                document.getElementById('amount').value = this.getTotalPrice();
+                                // Total price
+                                document.getElementById('total_price').value = this.getTotalPrice();
+
+                                // Id Ristorante
+                                document.getElementById('restaurant_id').value = store.initialOwner;
 
                                 // Form submit
                                 this.$refs.form.submit();
@@ -92,7 +96,7 @@ export default {
                     <!-- Email Address -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Indirizzo Email<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
 
                     <!-- Full Name -->
@@ -152,7 +156,8 @@ export default {
                     <!-- Hidden Inputs -->
                     <input type="hidden" id="nonce" name="payment_method_nonce">
                     <input type="hidden" id="device" name="device_data">
-                    <input type="hidden" id="amount" name="amount">
+                    <input type="hidden" id="total_price" name="total_price">
+                    <input type="hidden" id="restaurant_id" name="restaurant_id">
                 </div>
             </div>
         </div>
