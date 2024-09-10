@@ -26,10 +26,10 @@ export default {
 </script>
 
 <template>
-    <div class="container my-m-top-5rem">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <h1>
+                <h1 class="text-center">
                     Grazie per aver acquistato da noi!
                 </h1>
             </div>
@@ -38,7 +38,5 @@ export default {
 </template>
 
 <style scoped>
-.my-m-top-5rem {
-    margin-top: 5rem;
-}
+
 </style>
