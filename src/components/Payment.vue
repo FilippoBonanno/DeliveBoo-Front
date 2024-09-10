@@ -95,10 +95,6 @@ export default {
                         <input type="email" class="form-control" id="email" required>
                     </div>
 
-                <div class="form-group">
-                    <label for="name">Nome e Cognome<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
                     <!-- Full Name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome e Cognome<span class="text-danger">*</span></label>
