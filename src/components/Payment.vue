@@ -140,8 +140,8 @@ export default {
 
                         <!-- Phone -->
                         <div class="col-md-4 mb-3">
-                            <label for="phone" class="form-label">Telefono</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
+                            <label for="phone" class="form-label">Telefono<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
                         </div>
                     </div>
 
