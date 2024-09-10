@@ -4,12 +4,9 @@ import AppSingleRestaurant from "./components/AppSingleRestaurant.vue";
 import RestaurantCard from "./components/RestaurantCard.vue";
 import TypologyCard from "./components/TypologyCard.vue";
 import Payment from "./components/Payment.vue";
-<<<<<<< HEAD
 import PaymentSuccess from "./components/PaymentSuccess.vue";
 import PaymentDenied from "./components/PaymentDenied.vue";
-=======
 import Jumbotrone from "./components/Jumbotrone.vue";
->>>>>>> jumbotrone
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,16 +17,6 @@ const router = createRouter({
       name: "home",
       component: AppHome,
     },
-
-<<<<<<< HEAD
-    {
-      path: "/prova",
-      name: "prova",
-      component: AppProva,
-    },
-=======
-
->>>>>>> jumbotrone
 
     {
       path: "/TypologyCard",
@@ -55,7 +42,6 @@ const router = createRouter({
       component: Payment,
     },
 
-<<<<<<< HEAD
     {
       path: "/Checkout/Success",
       name: "PaymentSuccess",
@@ -67,16 +53,12 @@ const router = createRouter({
       name: "PaymentDenied",
       component: PaymentDenied,
     },
+    {
+      path: "/Jumbotrone",
+      name: "Jumbotrone",
+      component: Jumbotrone,
+    },
   ],
-=======
-        {
-            path: '/Jumbotrone',
-            name: 'Jumbotrone',
-            component: Jumbotrone
-        },
-
-    ]
->>>>>>> jumbotrone
 });
 
 export { router };
