@@ -75,15 +75,17 @@ export default {
 </script>
 
 <template>
-    <div class=" TypologyContainer jumbotrone" :class="currentClass">
+    <div class="TypologyContainer jumbotrone d-flex justify-content-center align-items-center" :class="currentClass">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <div class="d-flex flex-wrap justify-content-center">
-                    <div v-if="isLoading" class="d-flex p-2" v-for="item in 11">
+                    <!-- Skeleton loader for loading state -->
+                    <div v-if="isLoading" class="d-flex p-2" v-for="item in 11" :key="item">
                         <skeleton height="2.5rem" width="7rem" class="mb-2" borderRadius="16px"></skeleton>
                     </div>
 
-                    <template v-else v-for="item in categories">
+                    <!-- Category cards -->
+                    <template v-else v-for="item in categories" :key="item.name">
                         <div class="d-flex flex-column align-items-center p-2">
                             <TypologyCard @selected="getCategory(item.name)" :name="item.name" />
                         </div>
@@ -97,18 +99,16 @@ export default {
 <style scoped>
 .jumbotrone {
     position: relative;
-    /* Necessario per il posizionamento del ::before */
     border-bottom-left-radius: 8%;
     border-bottom-right-radius: 8%;
     margin-top: 5rem;
     width: 100%;
-    height: calc(60vh - 5rem);
+    height: 60vh; 
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgb(0, 4, 255);
     overflow: hidden;
-    /* Assicura che il contenuto non esca dal bordo arrotondato */
 }
 
 .jumbotrone::before {
@@ -121,14 +121,10 @@ export default {
     background-size: cover;
     background-position: center;
     opacity: 0.8;
-    /* Opacità dell'immagine */
     z-index: -1;
-    /* Fa sì che l'immagine sia dietro il contenuto */
     transition: background-image 1s ease;
-    /* Transizione fluida */
 }
 
-/* Definisci le immagini di background per ciascuna classe */
 .jumbotrone1::before {
     background-image: url(../assets/img/Jumbotrone/backgrounJumbotrone_1.jpg);
 }
@@ -140,4 +136,27 @@ export default {
 .jumbotrone3::before {
     background-image: url(../assets/img/Jumbotrone/backgrounJumbotrone_3.jpg);
 }
+
+
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
 </style>
+

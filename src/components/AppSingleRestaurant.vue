@@ -38,78 +38,68 @@ export default {
 </script>
 
 <template>
-
     <div class="menu-section mt-5">
-        <div class="title-section d-flex flex-column">
+        <div class="title-section d-flex flex-column align-items-center mb-4">
             <div v-if="isLoading">
                 <Skeleton height="3rem" width="15rem" class="mb-2" borderRadius="16px"></Skeleton>
             </div>
-            <h1 v-else>{{ this.restaurant.name }}</h1>
+            <h1 v-else>{{ restaurant.name }}</h1>
             <h2>Menù</h2>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="menu-items d-flex">
-                        <template v-if="isLoading == false">
-                            <div class="menu-item me-3 ms-3" v-for="dish in this.restaurant.dishes">
+                <div class="col-12">
+                    <div class="menu-items d-flex flex-wrap justify-content-center">
+                        <template v-if="!isLoading">
+                            <div class="menu-item me-3 ms-3 mb-4" v-for="dish in restaurant.dishes" :key="dish.id">
                                 <h3>{{ dish.name }}</h3>
                                 <p>{{ dish.description }}</p>
-                                <div class="d-flex justify-content-between"><span class="price">{{
-                                    parseFloat(dish.price).toFixed(2) }}
-                                        €</span>
-                                    <button class="price" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="price">{{ parseFloat(dish.price).toFixed(2) }} €</span>
+                                    <button class="btn-add-to-cart" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
                                 </div>
-
                                 <img :src="dish.img" :alt="dish.name" />
                             </div>
                         </template>
-                        <template v-else v-for="x in 3">
-                            <div class="d-fllex me-3 ms-3 flex-wrap justify-content-between">
-                                <skeleton shape="square" size="22.5rem" class="ms-2"></skeleton>
+                        <template v-else>
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <Skeleton shape="square" size="22.5rem" class="ms-2 mb-4" v-for="x in 3" :key="x"></Skeleton>
                             </div>
-
                         </template>
-
-
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-
 </template>
-
 <style scoped>
 .menu-section {
     text-align: center;
     padding: 50px 0;
     background-color: #f8f8f8;
-
 }
 
 .title-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 30px;
 }
 
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
 h2 {
     font-family: "Times New Roman", Times, serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .menu-items {
     display: flex;
-    /* justify-content: space-around; */
-    margin: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .menu-item {
@@ -118,24 +108,26 @@ h2 {
     border-radius: 10px;
     background-color: #5B85AA;
     color: white;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item h3 {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin: 0.5rem 0.5rem 1rem;
+    margin: 0 0 0.5rem;
 }
 
 .menu-item p {
-    font-size: 14px;
+    font-size: 0.9rem;
     color: #ffffff;
-    margin-left: 0.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 0.5rem;
 }
 
 .menu-item img {
     width: 100%;
     border-radius: 5px;
+    margin-top: 0.5rem;
 }
 
 .price {
@@ -143,7 +135,21 @@ h2 {
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 0.9rem;
     font-weight: bold;
+}
+
+.btn-add-to-cart {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #ff3d2e;
 }
 </style>

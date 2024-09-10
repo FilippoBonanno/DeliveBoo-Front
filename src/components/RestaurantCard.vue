@@ -11,72 +11,40 @@ export default {
 
 
 <template>
-    <div class="card-container">
-      <div class="image-container">
-        <img :src="restaurant.img" alt="Immagine ristorante" />
-        <div class="typology-name">{{ restaurant.typology }}</div>
+  <div class="card-container d-flex flex-column align-items-start">
+      <div class="image-container position-relative overflow-hidden rounded-3">
+          <img :src="restaurant.img" alt="Immagine ristorante" class="img-fluid" />
+          <div class="typology-name position-absolute bottom-0 start-0 bg-dark text-white p-2 rounded-2">
+              {{ restaurant.typology }}
+          </div>
       </div>
-      <div class="restaurant-name">{{ restaurant.name }}</div>
-    </div>
-  </template>
-  
-  
+      <div class="restaurant-name mt-2 fw-bold fs-5">
+          {{ restaurant.name }}
+      </div>
+  </div>
+</template>
 
 <style scoped>
 .card-container {
-    width: 250px;
-    height: 150px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 40px 20px;
+  width: 250px;
+  margin: 40px 20px;
 }
 
 .image-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.image-container img {
-    width: 100%;
-    display: block;
-    border-radius: 12px;
-    object-fit: cover;
+  height: 150px;
 }
 
 .typology-name {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: #000000c2;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+  bottom: 10px;
+  left: 10px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .restaurant-name {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: "Permanent Marker";
-    color: #000;
-    text-align: start;
-    margin-left: 1rem;
-    letter-spacing: normal;
-    word-spacing: 0px;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-.restaurant-name {
-    color: #000;
-    text-align: start;
-    margin-top: 10px;
+  font-family: "Permanent Marker";
+  color: #000;
+  letter-spacing: normal;
+  word-spacing: 0;
 }
 </style>

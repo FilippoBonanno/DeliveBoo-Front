@@ -83,91 +83,95 @@ export default {
 </script>
 
 <template>
-
     <form id="payment-form" action="http://localhost:8000/api/checkout" method="post" ref="form">
-        <div class="container">
-            <div class="col-md-6 offset-md-3">
-                <h1>
-                    Totale: {{ getTotalPrice() }}€
-                </h1>
-                <div class="form-group">
-                    <label for="email">Indirizzo Email<span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email">
-                </div>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <h1 class="mb-4">Totale: {{ getTotalPrice() }}€</h1>
+                    
+                    <!-- Email Address -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Indirizzo Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
 
                 <div class="form-group">
                     <label for="name">Nome e Cognome<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="name" name="name">
                 </div>
+                    <!-- Full Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome e Cognome<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Indirizzo<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="address" name="address">
+                    <div class="row">
+                        <!-- Address -->
+                        <div class="col-md-6 mb-3">
+                            <label for="address" class="form-label">Indirizzo<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="address" name="address" required>
+                        </div>
+
+                        <!-- City -->
+                        <div class="col-md-3 mb-3">
+                            <label for="city" class="form-label">Città<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+
+                        <!-- Province -->
+                        <div class="col-md-3 mb-3">
+                            <label for="province" class="form-label">Provincia<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="province" name="province" required>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="city">Città<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="city" name="city">
+                    <div class="row">
+                        <!-- Postal Code -->
+                        <div class="col-md-4 mb-3">
+                            <label for="postalcode" class="form-label">Codice Postale<span class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="postalcode" name="postalcode" required>
                         </div>
-                    </div>
 
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="province">Provincia<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="province" name="province">
+                        <!-- Country -->
+                        <div class="col-md-4 mb-3">
+                            <label for="country" class="form-label">Paese<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="country" name="country" required>
                         </div>
-                    </div>
 
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="postalcode">Codice Postale<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="postalcode" name="postalcode">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="country">Paese<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="country" name="country">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="phone">Telefono</label>
+                        <!-- Phone -->
+                        <div class="col-md-4 mb-3">
+                            <label for="phone" class="form-label">Telefono</label>
                             <input type="text" class="form-control" id="phone" name="phone">
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div id="dropin-container"></div>
-                        </div>
+                    <!-- Payment Method Container -->
+                    <div class="mb-3">
+                        <div id="dropin-container"></div>
                     </div>
 
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-success w-100">Acquista ora</button>
+
+                    <!-- Hidden Inputs -->
+                    <input type="hidden" id="nonce" name="payment_method_nonce">
+                    <input type="hidden" id="device" name="device_data">
+                    <input type="hidden" id="amount" name="amount">
                 </div>
-
-                <button type="submit" class="btn btn-success">Acquista ora</button>
-
-                <input type="hidden" id="nonce" name="payment_method_nonce" />
-                <input name="device_data" type="hidden" id="device">
-                <input name="amount" type="hidden" id="amount">
-
             </div>
         </div>
     </form>
-
 </template>
 
 <style scoped>
+
 #payment-form {
     margin-top: 5rem;
 }
+
+
+.btn-success {
+    width: 100%;
+}
 </style>
+

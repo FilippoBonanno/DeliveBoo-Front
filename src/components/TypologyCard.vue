@@ -33,9 +33,8 @@ export default {
 
 <template>
     <div @click="selected">
-        <!-- Applica la classe 'active' se isChecked è true e 'animate__animated animate__bounce' se è animato -->
         <button type="button"
-            :class="['btn', 'typology-btn', 'rounded-pill', { 'active': isChecked, 'animate__animated': isAnimating, 'animate__bounce': isAnimating }]"
+            :class="['btn', 'typology-btn', 'rounded-pill', { 'active': isChecked, 'animate__animated': isAnimating, 'animate__bounce': isAnimating }] "
             @animationend="animationEnd">
             {{ name }}
         </button>

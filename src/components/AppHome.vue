@@ -58,64 +58,110 @@ export default {
 </script>
 
 <template>
-    <main>
+  <main>
       <Jumbotrone @arraySent="handleEmit" />
-      <div class="container">
-        <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
-        <div class="row">
-          <div class="col-12 d-flex justify-content-center flex-wrap">
-            <div v-if="!isLoading && restaurants.length">
-              <template v-for="restaurant in restaurants" :key="restaurant.id">
-                <router-link class="btn" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
-                  <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
-                </router-link>
-              </template>
-            </div>
-            <div v-else-if="notFound">
-              <h2 class="text-danger">La richiesta non ha prodotto alcun risultato</h2>
-            </div>
-            <div v-if="isLoading" class="d-flex m-3">
-              <Skeleton shape="square" size="15rem" class="ms-2" v-for="x in 8" :key="x"></Skeleton>
-            </div>
+      <div class="container my-4">
+          <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
+          <div class="row">
+              <div class="col-12 d-flex justify-content-center flex-wrap">
+                  <div v-if="!isLoading && restaurants.length" class="d-flex flex-wrap justify-content-center">
+                      <template v-for="restaurant in restaurants" :key="restaurant.id">
+                          <router-link class="btn" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
+                              <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
+                          </router-link>
+                      </template>
+                  </div>
+                  <div v-else-if="notFound">
+                      <h2 class="text-danger">La richiesta non ha prodotto alcun risultato</h2>
+                  </div>
+                  <div v-if="isLoading" class="d-flex justify-content-center flex-wrap m-3">
+                      <Skeleton shape="square" size="15rem" class="ms-2" v-for="x in 8" :key="x"></Skeleton>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </main>
-  </template>
-  
-
-
+  </main>
+</template>
 <style scoped>
-/* .p-inputtext {
-    background-color: white !important;
-    color: black !important;
+/* Padding e margini */
+.container {
+    padding: 1rem;
 }
 
-.p-accordion {
-    background-color: white !important;
-    color: black !important;
-} */
-
-.TypologyContainer {
-    margin-top: 5rem;
-
-}
-
-.typology-name {
-    border-radius: 10px;
-    padding: 5px 10px;
+/* Titolo della pagina */
+h2 {
+    font-size: 1.75rem; 
     font-weight: bold;
-    color: #000;
-    display: inline-block;
-    margin-top: 5px;
-    font-family: "Permanent Marker";
-
+    margin-bottom: 1rem;
 }
 
-.typology-card.selected {
-    transform: scale(1.1);
-    /* Effetto zoom */
-    box-shadow: 0 0 15px 5px rgba(32, 32, 32, 0.5);
-    /* Effetto luce gialla sotto */
+/* Skeleton loader */
+.skeleton {
+    margin: 0.5rem;
+}
+
+/* Contenitore degli elementi del menu */
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Elemento del menu */
+.menu-item {
+    max-width: 300px;
+    text-align: left;
+    border-radius: 10px;
+    background-color: #5B85AA;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titolo dell'elemento del menu */
+.menu-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Descrizione dell'elemento del menu */
+.menu-item p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+/* Immagine dell'elemento del menu */
+.menu-item img {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+/* Prezzo */
+.price {
+    background-color: #000000c2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Bottone "Aggiungi al carrello" */
+.btn-add-to-cart {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #ff3d2e;
 }
 </style>
