@@ -1,8 +1,10 @@
 <script>
+import { store } from '../../data/storeCart.js';
 
 export default {
     name: 'Denied',
     components: {
+        store
     },
 
     data() {
@@ -11,9 +13,14 @@ export default {
     },
 
     methods: {
+        handleClearCart() {
+            // console.log(store.getCart(), 'cart');
+            store.clearCart();
+        },
     },
 
     mounted() {
+        this.handleClearCart();
     }
 }
 </script>
