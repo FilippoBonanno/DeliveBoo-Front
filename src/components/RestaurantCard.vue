@@ -15,7 +15,7 @@ export default {
     <div class="image-container position-relative overflow-hidden rounded-3">
       <img :src="restaurant.img" alt="Immagine ristorante" class="img-fluid" />
       <div class="typology-name position-absolute bottom-0 start-0 bg-dark text-white p-2 rounded-2">
-        <div v-for="category in restaurant.categories">
+        <div v-for="category in restaurant.categories" class="text-start">
           {{ category.name }}
         </div>
 
