@@ -4,6 +4,7 @@ import RestaurantCard from './RestaurantCard.vue'; // Importa RestaurantCard
 import TypologyCard from './TypologyCard.vue'; // Altri componenti
 import Skeleton from 'primevue/skeleton';
 import Jumbotrone from './Jumbotrone.vue';
+import Partnership from './Partnership.vue';
 
 export default {
   name: 'AppHome',
@@ -11,7 +12,8 @@ export default {
     TypologyCard,
     RestaurantCard,
     Skeleton,
-    Jumbotrone
+    Jumbotrone,
+    Partnership
   },
   data() {
     return {
@@ -84,6 +86,7 @@ export default {
         </div>
       </div>
     </div>
+    <Partnership />
   </main>
 </template>
 <style scoped>
