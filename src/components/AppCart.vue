@@ -111,11 +111,12 @@ export default {
 
                     <!-- Pulsante per procedere al checkout -->
                     <div class="mt-3">
-                        <a href="http://localhost:5174/Checkout">
+                        <router-link :to="{ name: 'Payment' }">
                             <button class="btn btn-primary checkout w-100" type="button">Procedi al
-                                Checkout
+                                Pagamento
                             </button>
-                        </a>
+                        </router-link>
+
                     </div>
                 </div>
 
