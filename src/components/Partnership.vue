@@ -63,9 +63,20 @@ export default {
         </div>
     </div>
 
+    <footer class="footer">
+        <div>
+            <img class="waveFooter" src="../assets/img/Partnership/wave-black.svg">
+        </div>
+    </footer>
+
 </template>
 
 <style scoped>
+.footer {
+
+    color: white;
+}
+
 * {
     font-family: "Merriweather", serif;
 }
@@ -86,6 +97,7 @@ export default {
 
 .join-us {
     background-color: #5B85AA;
+    padding-bottom: 7%;
 }
 
 .custom-btn {
@@ -100,5 +112,9 @@ export default {
 
 .custom-btn:hover {
     background-color: #00c5a1;
+}
+
+.waveFooter {
+    padding-top: -5%;
 }
 </style>
