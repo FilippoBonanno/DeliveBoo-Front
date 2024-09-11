@@ -110,7 +110,7 @@ header {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
-    color: #5B85AA;
+    color: #0f5ea3;
 }
 
 

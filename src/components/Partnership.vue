@@ -115,6 +115,6 @@ export default {
 }
 
 .waveFooter {
-    padding-top: -5%;
+    margin-top: -5%;
 }
 </style>
