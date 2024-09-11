@@ -64,7 +64,8 @@ export default {
       <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
       <div class="row">
         <div class="col-12 d-flex justify-content-center flex-wrap">
-          <div v-if="!isLoading && restaurants.length" class="d-flex flex-wrap justify-content-center">
+          <div v-if="!isLoading && restaurants.length"
+            class="d-flex flex-wrap justify-content-center justify-content-md-between ">
             <template v-for="restaurant in restaurants" :key="restaurant.id">
               <router-link class="btn" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
                 <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
