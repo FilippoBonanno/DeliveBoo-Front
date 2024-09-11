@@ -40,26 +40,24 @@ export default {
 </script>
 
 <template>
-    <header class="bg-warning text-white mb-5">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-12 d-flex justify-content-between align-items-center py-2">
-                    <!-- Logo e Titolo -->
-                    <div class="d-flex align-items-center">
-                        <img src="../assets/img/Deliveboo-logo-Byke.png" alt="DeliveBoo Logo" class="logo-img">
+    <header class="orange mb-5">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100 d-flex justify-content-between align-items-center ">
+                    <div class="h-100 d-flex align-items-center animate__animated animate__lightSpeedInLeft">
+                        <img src="../assets/img/Deliveboo-logo-Byke.png">
                         <h1 class="title-logo ms-3 mb-0">DeliveBoo</h1>
                     </div>
-                    <!-- Navigazione e Carrello -->
-                    <div class="d-flex align-items-center">
-                        <div class="btn btn-primary me-3 rounded-pill custom-btn">
-                            <router-link :to="{ name: 'home' }" class="text-white text-decoration-none">
-                                <i class="fa-solid fa-house"></i> Home
-                            </router-link>
+                    <div class="d-flex">
+                        <div class="me-3 btn custom-btn">
+                            <router-link :to="{ name: 'home' }"><i class="fa-solid fa-house"></i> Home</router-link>
                         </div>
-                        <button class="btn btn-primary cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+
+                        <div class=" cart-btn" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span v-if="countItems() > 0" class="badge bg-danger badge-cart">{{ countItems() }}</span>
-                        </button>
+                            <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
+                        </div>
                         <AppCart />
                     </div>
                 </div>
@@ -69,10 +67,20 @@ export default {
 </template>
 
 <style scoped>
-/* Aggiustamenti stilistici per i componenti */
-.logo-img {
-    height: auto; /* Mantiene le proporzioni del logo */
-    max-height: 3rem; /* Imposta un'altezza massima per il logo */
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+}
+
+header {
+    height: 5rem;
+    width: 100%;
+    background-color: #F46036;
+    position: fixed;
+    top: 0;
+    z-index: 1050;
 }
 
 .title-logo {
@@ -80,12 +88,23 @@ export default {
     font-weight: 900;
     font-style: italic;
     color: #5B85AA;
-    font-size: 1.5rem; /* Imposta una dimensione di font maggiore per il titolo */
+}
+
+
+.h-100 {
+    height: 100%;
+}
+
+img {
+    height: 100%;
 }
 
 .custom-btn {
     background-color: #5B85AA;
+    /* Verde simile */
     color: white;
+    border-radius: 50px;
+    /* Per il bordo arrotondato */
     padding: 10px 20px;
 }
 
@@ -111,8 +130,7 @@ export default {
     right: -5px;
     background-color: red;
     border-radius: 50%;
-    padding: 3px 8px; /* Riduce il padding per i dispositivi mobili */
-    font-size: 0.75rem; /* Riduce la dimensione del font */
+    padding: 5px 10px;
+    font-size: 12px;
 }
 </style>
-
