@@ -1,16 +1,21 @@
 <script>
 import { store } from '../../data/storeCart.js';
+import Dialog from 'primevue/dialog';
+import Button from 'primevue/button';
 
 export default {
     name: 'AppSingleRestaurant',
 
     components: {
-        store
+        store,
+        Dialog,
+        Button
     },
 
     data() {
         return {
             cart: store.getCart(),
+            visible: false
         }
     },
 
@@ -26,6 +31,7 @@ export default {
         handleClearCart() {
             // console.log(store.getCart(), 'cart');
             store.clearCart();
+            this.visible = false
         },
         getTotalPrice() {
             let sum = 0;
@@ -43,7 +49,7 @@ export default {
         },
         handleUpdateQuantity(itemid, quantity) {
             store.updateQuantity(itemid, quantity);
-        }
+        },
 
     },
     computed: {
@@ -53,7 +59,6 @@ export default {
     },
 
     mounted() {
-        // console.log(store.getCart(), 'cart');
     }
 }
 </script>
@@ -84,25 +89,38 @@ export default {
                             <div class="d-flex justify-content-between">
                                 <h6 class="my-0">{{ item.name }} </h6>
                                 <div class="d-flex align-items-center">
-                                    <button @click="handleUpdateQuantity(item.id, item.quantity + 1)"
-                                        class="btn btn-primary">+</button>
+                                    <div @click="handleUpdateQuantity(item.id, item.quantity - 1)" class=""><i
+                                            class="fa-solid fa-minus me-2"></i></div>
                                     <h6>x{{ item.quantity }}</h6>
-                                    <button @click="handleUpdateQuantity(item.id, item.quantity - 1)"
-                                        class="btn btn-primary">-</button>
+                                    <div @click="handleUpdateQuantity(item.id, item.quantity + 1)" class=""><i
+                                            class="fa-solid fa-plus ms-2"></i></div>
                                 </div>
                             </div>
 
                             <small class="text-muted">{{ item.description }}</small>
-                            <div><button @click="handleRemoveFromCart(item.id)"
-                                    class="text-muted mt-1 btn btn-danger">Elimina</button></div>
+
                         </div>
                         <span class="text-muted">€{{ parseFloat(item.price).toFixed(2) }}</span>
                     </li>
                 </ul>
                 <div v-if="handleGetCart().length !== 0">
-                    <div @click="handleClearCart()"><small class="text-muted mt-1 btn btn-danger">Svuota
-                            Carrello</small>
+                    <div><button type="button" class="btn btn-warning" @click="visible = true">
+                            Svuota il Carrello
+                        </button>
                     </div>
+                    <!-- Modal -->
+
+                    <Dialog v-model:visible="visible" modal header="Conferma" :style="{ width: '25rem' }">
+                        <div class="mb-3">Sei sicuro di voler eliminare il
+                            carrello?</div>
+                        <div class="d-flex justify-content-end gap-2">
+                            <Button class="m-2" type="button" label="Annulla" severity="secondary"
+                                @click="visible = false"></Button>
+                            <Button class="m-2 bg-danger" type="button" label="Conferma"
+                                @click="handleClearCart()"></Button>
+                        </div>
+                    </Dialog>
+
                     <!-- Totale del carrello -->
                     <div class="d-flex justify-content-between">
                         <strong>Totale:</strong>
