@@ -15,7 +15,8 @@ export default {
     data() {
         return {
             cart: store.getCart(),
-            visible: false
+            visible: false,
+            store: store
         }
     },
 
@@ -75,7 +76,8 @@ export default {
                 Carrello
                 e' Vuoto
             </h5>
-            <h5 v-else class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo Carrello</h5>
+            <h5 v-else class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo Carrello <br> da: {{
+                store.initialOwner }}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">

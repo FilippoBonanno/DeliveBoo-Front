@@ -9,20 +9,20 @@ export const store = reactive({
   currentOwner: null,
 
   //Funzioni
-  addToCart(product) {
+  addToCart(product, restaurant) {
     // this.currentOwner = product.restaurant;
-    console.log(product.restaurant_id);
+    console.log(restaurant.name);
     //controllo se nel carrello ci sono elementi uguali
     const existingProduct = this.cart.find((i) => i.id === product.id);
     // inizializzo il current owner
-    this.currentOwner = product.restaurant_id;
+    this.currentOwner = restaurant.name;
     // verifico che l'initial owner sia diverso da null
     if (this.initialOwner === null || this.cart.length === 0) {
-      this.initialOwner = product.restaurant_id;
+      this.initialOwner = restaurant.name;
       product.quantity = 1;
       this.cart.push(product);
       // verifico che l'initial owner sia diverso dal current owner
-    } else if (this.initialOwner !== product.restaurant_id) {
+    } else if (this.initialOwner !== restaurant.name) {
       //chiedo conferma all'utente se vuole svuotare il carrello e aquistare da un nuovo ristoratore
       if (
         confirm(
@@ -31,7 +31,10 @@ export const store = reactive({
       ) {
         this.cart = [];
         //resetto l'initial owner
-        this.initialOwner = null;
+        this.initialOwner = restaurant.name;
+        // pusho direttamente il prodotto nel carrello dopo la conferma
+        product.quantity = 1;
+        this.cart.push(product);
       }
 
       // se l'initial owner e' uguale al current owner aggiungo il prodotto al carrello

@@ -19,8 +19,8 @@ export default {
     },
 
     methods: {
-        handleAddToCart(dish) {
-            store.addToCart(dish);
+        handleAddToCart(dish, restaurant) {
+            store.addToCart(dish, restaurant);
         }
 
     },
@@ -56,14 +56,16 @@ export default {
                                 <p>{{ dish.description }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="price">{{ parseFloat(dish.price).toFixed(2) }} €</span>
-                                    <button class="btn-add-to-cart" @click="handleAddToCart(dish)">Aggiungi al Carrello</button>
+                                    <button class="btn-add-to-cart" @click="handleAddToCart(dish, restaurant)">Aggiungi
+                                        al Carrello</button>
                                 </div>
                                 <img :src="dish.img" :alt="dish.name" />
                             </div>
                         </template>
                         <template v-else>
                             <div class="d-flex flex-wrap justify-content-center">
-                                <Skeleton shape="square" size="22.5rem" class="ms-2 mb-4" v-for="x in 3" :key="x"></Skeleton>
+                                <Skeleton shape="square" size="22.5rem" class="ms-2 mb-4" v-for="x in 3" :key="x">
+                                </Skeleton>
                             </div>
                         </template>
                     </div>
