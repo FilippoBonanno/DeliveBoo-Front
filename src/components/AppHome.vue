@@ -80,7 +80,7 @@ export default {
             <h2 class="text-danger">La richiesta non ha prodotto alcun risultato</h2>
           </div>
           <div v-if="isLoading" class="d-flex justify-content-center flex-wrap">
-            <div v-for="x in 8" :key="x" class="m-3">
+            <div v-for="x in 16" :key="x" class="m-3">
               <Skeleton shape="square" size="15rem" class="ms-2"></Skeleton>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default {
             <h2 class="text-danger">La richiesta non ha prodotto alcun risultato</h2>
           </div>
           <div v-if="isLoading" class="d-flex justify-content-center flex-wrap">
-            <div v-for="x in 8" :key="x" class="m-3">
+            <div v-for="x in 16" class="m-3">
               <Skeleton shape="square" size="15rem" class="ms-2"></Skeleton>
             </div>
           </div>
