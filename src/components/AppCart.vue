@@ -56,7 +56,8 @@ export default {
     computed: {
         totalPrice() {
             return this.getTotalPrice(); // Chiamata alla funzione all'interno del computed
-        }
+        },
+
     },
 
     mounted() {
@@ -90,7 +91,7 @@ export default {
                         <div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="my-0">{{ item.name }} </h6>
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center quantity">
                                     <div @click="handleUpdateQuantity(item.id, item.quantity - 1)" class=""><i
                                             class="fa-solid fa-minus me-2"></i></div>
                                     <h6>x{{ item.quantity }}</h6>
@@ -102,7 +103,7 @@ export default {
                             <small class="text-muted">{{ item.description }}</small>
 
                         </div>
-                        <span class="text-muted">€{{ parseFloat(item.price).toFixed(2) }}</span>
+                        <span class="price">€{{ parseFloat(item.price).toFixed(2) }}</span>
                     </li>
                 </ul>
                 <div v-if="handleGetCart().length !== 0">
@@ -118,7 +119,7 @@ export default {
                         <div class="d-flex justify-content-end gap-2">
                             <Button class="m-2" type="button" label="Annulla" severity="secondary"
                                 @click="visible = false"></Button>
-                            <Button class="m-2 bg-danger" type="button" label="Conferma"
+                            <Button class="m-2" type="button" label="Conferma" severity="danger"
                                 @click="handleClearCart()"></Button>
                         </div>
                     </Dialog>
@@ -163,6 +164,22 @@ export default {
 
 .checkout:hover {
     background-color: #0f5ea3;
+}
+
+i {
+    cursor: pointer;
+    background-color: #a3a3a3;
+    border-radius: 50%;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+
+}
+
+.quantity {
+    font-weight: bold;
+    background-color: #a3a3a3;
+    border-radius: 50px;
+    align-items: center;
 }
 
 .btn-close {

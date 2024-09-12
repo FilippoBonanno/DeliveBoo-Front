@@ -8,6 +8,8 @@ export const store = reactive({
   initialOwner: JSON.parse(localStorage.getItem("initialOwner")) || null,
   currentOwner: null,
 
+  confirmModal: false,
+
   //Funzioni
   addToCart(product, restaurant) {
     // this.currentOwner = product.restaurant;
@@ -24,19 +26,13 @@ export const store = reactive({
       // verifico che l'initial owner sia diverso dal current owner
     } else if (this.initialOwner !== restaurant.name) {
       //chiedo conferma all'utente se vuole svuotare il carrello e aquistare da un nuovo ristoratore
-      if (
-        confirm(
-          "Il carrello contiene piatti di un altro ristorante. Vuoi svuotare il carrello?"
-        )
-      ) {
-        this.cart = [];
-        //resetto l'initial owner
-        this.initialOwner = restaurant.name;
-        // pusho direttamente il prodotto nel carrello dopo la conferma
-        product.quantity = 1;
-        this.cart.push(product);
-      }
-
+      this.confirmModal = true;
+      // this.cart = [];
+      // //resetto l'initial owner
+      // this.initialOwner = restaurant.name;
+      // // pusho direttamente il prodotto nel carrello dopo la conferma
+      // product.quantity = 1;
+      // this.cart.push(product);
       // se l'initial owner e' uguale al current owner aggiungo il prodotto al carrello
     } else {
       if (existingProduct) {
@@ -48,6 +44,13 @@ export const store = reactive({
     }
     localStorage.setItem("initialOwner", JSON.stringify(this.initialOwner));
     localStorage.setItem("cart", JSON.stringify(this.cart));
+  },
+
+  resetCartAndOwner(product, restaurant) {
+    this.cart = [];
+    (this.confirmModal = false), (this.initialOwner = restaurant.name);
+    product.quantity = 1;
+    this.cart.push(product);
   },
 
   updateQuantity(productId, newQuantity) {
@@ -71,6 +74,7 @@ export const store = reactive({
   },
   clearCart() {
     this.cart = [];
+    this.initialOwner = null;
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
 

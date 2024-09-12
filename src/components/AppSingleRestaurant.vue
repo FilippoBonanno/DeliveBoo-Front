@@ -2,27 +2,43 @@
 import axios from 'axios';
 import { store } from '../../data/storeCart.js';
 import Skeleton from 'primevue/skeleton';
+import Dialog from 'primevue/dialog';
+import Button from 'primevue/button';
 
 export default {
     name: 'AppSingleRestaurant',
 
     components: {
         store,
-        Skeleton
+        Skeleton,
+        Dialog,
+        Button
     },
 
     data() {
         return {
             restaurant: '',
-            isLoading: true
+            isLoading: true,
+            store: store
         }
     },
 
     methods: {
         handleAddToCart(dish, restaurant) {
             store.addToCart(dish, restaurant);
+        },
+        handleConfirm(dish, restaurant) {
+            store.clearCart();
+            this.handleAddToCart(dish, restaurant);
+            store.confirmModal = false
         }
 
+    },
+
+    computed: {
+        checkModal() {
+            return store.confirmModal
+        }
     },
 
     mounted() {
@@ -55,11 +71,24 @@ export default {
                                 <h3>{{ dish.name }}</h3>
                                 <p>{{ dish.description }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">{{ parseFloat(dish.price).toFixed(2) }} €</span>
+                                    <span class="price">€ {{ parseFloat(dish.price).toFixed(2) }}</span>
                                     <button class="btn-add-to-cart" @click="handleAddToCart(dish, restaurant)">Aggiungi
                                         al Carrello</button>
                                 </div>
                                 <img :src="dish.img" :alt="dish.name" />
+                                <!-- Modale -->
+                                <Dialog v-model:visible="store.confirmModal" modal header="Conferma"
+                                    :style="{ width: '25rem' }">
+                                    <div class="mb-3"> Se acquisti da un altro ristorante il tuo carrello verrà
+                                        svuotato. Vuoi
+                                        continuare?</div>
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <Button class="m-2" type="button" label="Annulla" severity="secondary"
+                                            @click="store.confirmModal = false"></Button>
+                                        <Button class="m-2" type="button" label="Conferma" severity="danger"
+                                            @click="handleConfirm(dish, restaurant)"></Button>
+                                    </div>
+                                </Dialog>
                             </div>
                         </template>
                         <template v-else>
