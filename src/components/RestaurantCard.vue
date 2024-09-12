@@ -11,7 +11,8 @@ export default {
 
 
 <template>
-  <div class="card-container d-flex flex-column align-items-start">
+  <div class="card-container d-flex flex-column align-items-start" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasScrolling">
     <div class="image-container position-relative overflow-hidden rounded-3">
       <img :src="restaurant.img" alt="Immagine ristorante" class="w-100 h-100 object-fit-cover" />
       <div class="typology-name position-absolute bottom-0 start-0  text-white p-2 rounded-2 ">
