@@ -72,7 +72,7 @@ export default {
             class="d-flex flex-wrap justify-content-center justify-content-md-between ">
             <template v-for="restaurant in restaurants" :key="restaurant.id">
               <router-link class="btn" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
-                <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
+                <RestaurantCard :restaurant="restaurant" />
               </router-link>
             </template>
           </div>
@@ -97,7 +97,7 @@ export default {
             class="d-flex flex-wrap justify-content-center justify-content-md-between ">
             <template v-for="restaurant in restaurants" :key="restaurant.id">
               <router-link class="btn w-100" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
-                <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
+                <RestaurantCard :restaurant="restaurant" />
               </router-link>
             </template>
           </div>
