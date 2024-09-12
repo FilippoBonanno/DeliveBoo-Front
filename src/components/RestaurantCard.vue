@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="card-container d-flex flex-column align-items-start" data-bs-toggle="offcanvas"
-  data-bs-target="#offcanvasScrolling">
+    data-bs-target="#offcanvasScrolling">
     <div class="image-container position-relative overflow-hidden rounded-3">
       <img :src="restaurant.img" alt="Immagine ristorante" class="w-100 h-100 object-fit-cover" />
       <div class="typology-name position-absolute bottom-0 start-0  text-white p-2 rounded-2 ">
@@ -23,7 +23,7 @@ export default {
       </div>
     </div>
     <div class="restaurant-name mt-3 text-start">
-      <h5 class="m-0 fw-bolder">{{ restaurant.name }}</h5>
+      <h5 class="m-0">{{ restaurant.name }}</h5>
     </div>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
   font-family: "Merriweather", serif;
 }
 
-.card-container:hover img{
+.card-container:hover img {
   scale: 1.2;
   transition-duration: 1s;
 }
@@ -44,6 +44,10 @@ export default {
   width: 250px;
   height: 150px;
 
+}
+
+.restaurant-name h5 {
+  font-weight: 900;
 }
 
 .typology-name {
