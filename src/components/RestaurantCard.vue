@@ -35,6 +35,11 @@ export default {
   font-family: "Merriweather", serif;
 }
 
+.card-container:hover img{
+  scale: 1.2;
+  transition-duration: 1s;
+}
+
 .image-container {
   width: 250px;
   height: 150px;
