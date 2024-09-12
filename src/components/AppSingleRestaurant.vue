@@ -60,7 +60,8 @@ export default {
                 <Skeleton height="3rem" width="15rem" class="mb-2" borderRadius="16px"></Skeleton>
             </div>
             <h1 v-else>{{ restaurant.name }}</h1>
-            <h2>Menù</h2>
+            <img class="img w-md-100 w-50 " :src="restaurant.img" alt="">
+            <h2 class="m-3">Menù</h2>
         </div>
         <div class="container">
             <div class="row">
@@ -108,6 +109,13 @@ export default {
     text-align: center;
     padding: 50px 0;
     background-color: #f8f8f8;
+}
+
+img {
+    border-radius: 100px;
+    /* img in cover */
+    object-fit: cover;
+    max-height: 50vh;
 }
 
 .title-section {

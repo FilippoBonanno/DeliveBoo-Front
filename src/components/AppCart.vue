@@ -82,69 +82,69 @@ export default {
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
-            <div class="offcanvas-body">
-                <!-- Placeholder prodotti nel carrello -->
-                <ul class="list-group mb-3" v-if="handleGetCart().length !== 0">
-                    <li class="list-group-item d-flex justify-content-between align-items-center"
-                        v-for="item, i in handleGetCart()">
-                        <div>
-                            <div class="d-flex justify-content-between">
-                                <h6 class="my-0">{{ item.name }} </h6>
-                                <div class="d-flex align-items-center quantity">
-                                    <div @click="handleUpdateQuantity(item.id, item.quantity - 1)" class=""><i
-                                            class="fa-solid fa-minus me-2"></i></div>
-                                    <h6>x{{ item.quantity }}</h6>
-                                    <div @click="handleUpdateQuantity(item.id, item.quantity + 1)" class=""><i
-                                            class="fa-solid fa-plus ms-2"></i></div>
-                                </div>
-                            </div>
-
-                            <small class="text-muted">{{ item.description }}</small>
-
-                        </div>
-                        <span class="price">€{{ parseFloat(item.price).toFixed(2) }}</span>
-                    </li>
-                </ul>
-                <div v-if="handleGetCart().length !== 0">
+        <div class="offcanvas-body">
+            <!-- Placeholder prodotti nel carrello -->
+            <ul class="list-group mb-3" v-if="handleGetCart().length !== 0">
+                <li class="list-group-item d-flex justify-content-between align-items-center"
+                    v-for="item, i in handleGetCart()">
                     <div>
-                        <!-- <Button label="Svuota il Carrello" severity="contrast" @click="visible = true" /> -->
-                        <button type="button" class="btn btn-warning" @click="visible = true"> <i
-                                class="fa-regular fa-trash-can fa-lg"></i>
-                            <span class="ms-2">Elimina</span>
-                        </button>
-                    </div>
-                    <!-- Modal -->
-
-                    <Dialog v-model:visible="visible" modal header="Conferma" :style="{ width: '25rem' }">
-                        <div class="mb-3">Sei sicuro di voler eliminare il
-                            carrello?</div>
-                        <div class="d-flex justify-content-end gap-2">
-                            <Button class="m-2" type="button" label="Annulla" severity="secondary"
-                                @click="visible = false"></Button>
-                            <Button class="m-2" type="button" label="Conferma" severity="danger"
-                                @click="handleClearCart()"></Button>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="my-0">{{ item.name }} </h6>
+                            <div class="d-flex align-items-center quantity">
+                                <div @click="handleUpdateQuantity(item.id, item.quantity - 1)" class=""><i
+                                        class="fa-solid fa-minus me-2"></i></div>
+                                <h6>x{{ item.quantity }}</h6>
+                                <div @click="handleUpdateQuantity(item.id, item.quantity + 1)" class=""><i
+                                        class="fa-solid fa-plus ms-2"></i></div>
+                            </div>
                         </div>
-                    </Dialog>
 
-                    <!-- Totale del carrello -->
-                    <div class="d-flex justify-content-between">
-                        <strong>Totale:</strong>
-                        <span>€{{ getTotalPrice() }}</span>
-                    </div>
-
-                    <!-- Pulsante per procedere al checkout -->
-                    <div class="mt-3">
-                        <router-link :to="{ name: 'Payment' }">
-                            <button class="btn btn-primary checkout w-100" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasScrolling">Procedi al
-                                Pagamento
-                            </button>
-                        </router-link>
+                        <small class="text-muted">{{ item.description }}</small>
 
                     </div>
+                    <span class="price">€{{ parseFloat(item.price).toFixed(2) }}</span>
+                </li>
+            </ul>
+            <div v-if="handleGetCart().length !== 0">
+                <div>
+                    <!-- <Button label="Svuota il Carrello" severity="contrast" @click="visible = true" /> -->
+                    <button type="button" class="btn btn-warning" @click="visible = true"> <i
+                            class="fa-regular fa-trash-can fa-lg"></i>
+                        <span class="ms-2">Elimina</span>
+                    </button>
+                </div>
+                <!-- Modal -->
+
+                <Dialog v-model:visible="visible" modal header="Conferma" :style="{ width: '25rem' }">
+                    <div class="mb-3">Sei sicuro di voler eliminare il
+                        carrello?</div>
+                    <div class="d-flex justify-content-end gap-2">
+                        <Button class="m-2" type="button" label="Annulla" severity="secondary"
+                            @click="visible = false"></Button>
+                        <Button class="m-2" type="button" label="Conferma" severity="danger"
+                            @click="handleClearCart()"></Button>
+                    </div>
+                </Dialog>
+
+                <!-- Totale del carrello -->
+                <div class="d-flex justify-content-between">
+                    <strong>Totale:</strong>
+                    <span>€{{ getTotalPrice() }}</span>
                 </div>
 
+                <!-- Pulsante per procedere al checkout -->
+                <div class="mt-3">
+                    <router-link :to="{ name: 'Payment' }">
+                        <button class="btn btn-primary checkout w-100" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasScrolling">Procedi al
+                            Pagamento
+                        </button>
+                    </router-link>
+
+                </div>
             </div>
+
+        </div>
 
     </div>
 </template>
@@ -194,4 +194,6 @@ export default {
     filter: invert(2);
     /* Colore leggermente grigio al passaggio del mouse */
 }
+
+
 </style>
