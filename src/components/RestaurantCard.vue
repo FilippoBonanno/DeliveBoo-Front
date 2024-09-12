@@ -11,8 +11,23 @@ export default {
 
 
 <template>
-  <div class="card-container d-flex flex-column align-items-start" data-bs-toggle="offcanvas"
+  <div class="card-container d-none d-md-flex flex-column align-items-start" data-bs-toggle="offcanvas"
   data-bs-target="#offcanvasScrolling">
+    <div class="image-container position-relative overflow-hidden rounded-3">
+      <img :src="restaurant.img" alt="Immagine ristorante" class="w-100 h-100 object-fit-cover" />
+      <div class="typology-name position-absolute bottom-0 start-0  text-white p-2 rounded-2 ">
+        <div v-for="category in restaurant.categories" class="text-start mt-1">
+          {{ category.name }}
+        </div>
+
+      </div>
+    </div>
+    <div class="restaurant-name mt-3 text-start">
+      <h5 class="m-0 fw-bolder">{{ restaurant.name }}</h5>
+    </div>
+  </div>
+
+  <div class="card-container d-flex d-md-none flex-column align-items-start">
     <div class="image-container position-relative overflow-hidden rounded-3">
       <img :src="restaurant.img" alt="Immagine ristorante" class="w-100 h-100 object-fit-cover" />
       <div class="typology-name position-absolute bottom-0 start-0  text-white p-2 rounded-2 ">

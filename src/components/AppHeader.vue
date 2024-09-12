@@ -64,7 +64,6 @@ export default {
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
                         </div>
-                        <AppCart />
                     </div>
                 </div>
 
@@ -84,10 +83,9 @@ export default {
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
                         </div>
-                        <AppCart />
                     </div>
                 </div>
-
+                <AppCart />
             </div>
         </div>
     </header>
