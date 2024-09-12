@@ -168,7 +168,7 @@ export default {
                                 document.getElementById('total_price').value = this.getTotalPrice();
 
                                 // Id Ristorante
-                                document.getElementById('restaurant_id').value = store.initialOwner;
+                                document.getElementById('restaurant_id').value = store.restaurantId;
 
                                 // Form submit
                                 this.$refs.form.submit();
@@ -189,6 +189,7 @@ export default {
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
                     <h1 class="mb-3">{{ store.initialOwner }}</h1>
+                    {{ store.restaurantId }}
                     <h2 class="mb-4">Totale: {{ getTotalPrice() }}€</h2>
 
                     <!-- Full Name -->

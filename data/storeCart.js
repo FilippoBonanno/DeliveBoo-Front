@@ -6,6 +6,7 @@ export const store = reactive({
   cart: JSON.parse(localStorage.getItem("cart")) || [],
 
   initialOwner: JSON.parse(localStorage.getItem("initialOwner")) || null,
+  restaurantId: JSON.parse(localStorage.getItem("restaurantId")) || null,
   currentOwner: null,
 
   confirmModal: false,
@@ -21,19 +22,13 @@ export const store = reactive({
     // verifico che l'initial owner sia diverso da null
     if (this.initialOwner === null || this.cart.length === 0) {
       this.initialOwner = restaurant.name;
+      this.restaurantId = restaurant.id;
       product.quantity = 1;
       this.cart.push(product);
       // verifico che l'initial owner sia diverso dal current owner
     } else if (this.initialOwner !== restaurant.name) {
       //chiedo conferma all'utente se vuole svuotare il carrello e aquistare da un nuovo ristoratore
       this.confirmModal = true;
-      // this.cart = [];
-      // //resetto l'initial owner
-      // this.initialOwner = restaurant.name;
-      // // pusho direttamente il prodotto nel carrello dopo la conferma
-      // product.quantity = 1;
-      // this.cart.push(product);
-      // se l'initial owner e' uguale al current owner aggiungo il prodotto al carrello
     } else {
       if (existingProduct) {
         existingProduct.quantity++;
@@ -43,14 +38,8 @@ export const store = reactive({
       }
     }
     localStorage.setItem("initialOwner", JSON.stringify(this.initialOwner));
+    localStorage.setItem("restaurantId", JSON.stringify(this.restaurantId));
     localStorage.setItem("cart", JSON.stringify(this.cart));
-  },
-
-  resetCartAndOwner(product, restaurant) {
-    this.cart = [];
-    (this.confirmModal = false), (this.initialOwner = restaurant.name);
-    product.quantity = 1;
-    this.cart.push(product);
   },
 
   updateQuantity(productId, newQuantity) {
@@ -75,6 +64,7 @@ export const store = reactive({
   clearCart() {
     this.cart = [];
     this.initialOwner = null;
+    this.restaurantId = null;
     localStorage.setItem("cart", JSON.stringify(this.cart));
   },
 
