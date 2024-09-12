@@ -24,7 +24,11 @@ export default {
         },
         countItems() {
             let cart = store.getCart();
-            return cart.length;
+            let quantity = 0;
+            cart.forEach(product => {
+                quantity += product.quantity;
+            });
+            return quantity;
         }
     },
     computed: {
