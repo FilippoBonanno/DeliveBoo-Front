@@ -114,7 +114,7 @@ header {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
-    color: #0f5ea3;
+    color: #000CF6;
 }
 
 
