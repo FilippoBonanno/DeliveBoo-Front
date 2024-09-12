@@ -1,157 +1,151 @@
-<script>
-
-import { store } from '../../data/storeCart.js';
-
-
-export default {
-    name: 'Partnership',
-
-    components: {
-
-        store
-    },
-
-    data() {
-        return {
-
-        }
-    },
-
-    methods: {
-
-    },
-    computed: {
-
-    },
-
-    mounted() {
-
-    }
-}
-</script>
-
 <template>
-    <div class="wave position-relative">
-        <img src="../assets/img/Partnership/wave.svg">
-        <div class="together position-absolute d-flex d-none d-md-block">
-            <img src="../assets/img/Partnership/together-opt.svg">
-        </div>
-
-    </div>
-
-    <div class="fluid  join-us">
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-12 ">
-                    <div class="background__card d-flex flex-column align-items-center">
-                        <div class="img_container col-3">
-                            <img class="w-100 "
-                                src="https://glovoapp.com/images/corporate-container/partners-image-opt.png">
-                        </div>
-                        <h3 class="text-center mt-3 fw-bold">Diventa Partner</h3>
-                        <div class="col-6 text-center mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Eveniet inventore
-                            enim quis error
-                            et ipsa fugiat voluptates consequatur beatae, alias id provident odio dolor itaque, laborum
-                            omnis accusamus consectetur architecto. Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Similique quod nemo nobis voluptatum incidunt dicta.</div>
-                        <button class=" custom-btn mt-5">Diventa Partner</button>
-                    </div>
-                </div>
-
+    <div @keydown.space="handleSpacebar" tabindex="0"> <!-- Aggiungi tabindex per rendere l'elemento focalizzabile -->
+        <div class="wave position-relative">
+            <img src="../assets/img/Partnership/wave.svg">
+            <div class="together position-absolute d-flex d-none d-md-block">
+                <img src="../assets/img/Partnership/together-opt.svg">
             </div>
         </div>
-    </div>
 
-    <footer class="new_footer_area bg_color">
-        <div class="new_footer_top">
-            <div class="container">
+        <div class="fluid join-us">
+            <div class="container d-flex justify-content-center">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
-                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Collegati con noi</h3>
-                            <p>Non perderti nessuna novità.!</p>
-                            <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true"
-                                _lpchecked="1">
-                                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                <button class="btn btn_get btn_get_two" type="submit">Contattaci</button>
-                                <p class="mchimp-errmessage" style="display: none;"></p>
-                                <p class="mchimp-sucmessage" style="display: none;"></p>
-                            </form>
+                    <div class="col-12">
+                        <div class="background__card d-flex flex-column align-items-center">
+                            <div class="img_container col-3">
+                                <img class="w-100"
+                                    src="https://glovoapp.com/images/corporate-container/partners-image-opt.png">
+                            </div>
+                            <h3 class="text-center mt-3 fw-bold">Diventa Partner</h3>
+                            <div class="col-6 text-center mt-3">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore
+                                enim quis error et ipsa fugiat voluptates consequatur beatae, alias id provident odio
+                                dolor itaque, laborum
+                                omnis accusamus consectetur architecto. Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Similique quod nemo nobis voluptatum incidunt dicta.
+                            </div>
+                            <button class="custom-btn mt-5">Diventa Partner</button>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
-                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Download</h3>
-                            <ul class="list-unstyled f_list">
-                                <li><a href="#">Azienda</a></li>
-                                <li><a href="#">Android App</a></li>
-                                <li><a href="#">ios App</a></li>
-                                <li><a href="#">Desktop</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
-                            style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Aiuto</h3>
-                            <ul class="list-unstyled f_list">
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Termini &amp; Condizioni</a></li>
-                                <li><a href="#">Documentazione</a></li>
-                                <li><a href="#">Supporto e Politica</a></li>
-                                <li><a href="#">Privacy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
-                            style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Team Sviluppo</h3>
-                            <div class="f_social_icon ">
-                                <a href="https://github.com/FilippoBonanno" target="_blank"><img style="width: 100%;"
-                                        src="../assets/img/Git_png/pngwing.com.png" alt="">F</a>
-                                <a href="https://github.com/MatteoZattini" target="_blank"><img style="width: 100%;"
-                                        src="../assets/img/Git_png/pngwing.com-blue.png" alt="">Ma</a>
-                                <a href="https://github.com/EdoardoMenicucci" target="_blank"><img style="width: 100%;"
-                                        src="../assets/img/Git_png/pngwing.com-red.png" alt="">E</a>
-                                <a href="https://github.com/Mikee282828" target="_blank"><img style="width: 100%;"
-                                        src="../assets/img/Git_png/pngwing.com-yellow.png" alt="">Me</a>
-                                <a href="https://github.com/damirusso95 " target="_blank"><img style="width: 100%;"
-                                        src="../assets/img/Git_png/pngwing.com-blue.png" alt="">D</a>
+                </div>
+            </div>
+        </div>
 
+        <footer class="new_footer_area bg_color">
+            <div class="new_footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s">
+                                <h3 class="f-title f_600 t_color f_size_18">Collegati con noi</h3>
+                                <p>Non perderti nessuna novità.!</p>
+                                <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true">
+                                    <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                                    <button class="btn btn_get btn_get_two" type="submit">Contattaci</button>
+                                    <p class="mchimp-errmessage" style="display: none;"></p>
+                                    <p class="mchimp-sucmessage" style="display: none;"></p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
+                                <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">Azienda</a></li>
+                                    <li><a href="#">Android App</a></li>
+                                    <li><a href="#">ios App</a></li>
+                                    <li><a href="#">Desktop</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s">
+                                <h3 class="f-title f_600 t_color f_size_18">Aiuto</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Termini &amp; Condizioni</a></li>
+                                    <li><a href="#">Documentazione</a></li>
+                                    <li><a href="#">Supporto e Politica</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s">
+                                <h3 class="f-title f_600 t_color f_size_18">Team Sviluppo</h3>
+                                <div class="f_social_icon">
+                                    <a href="https://github.com/FilippoBonanno" target="_blank"><img
+                                            style="width: 100%;" src="../assets/img/Git_png/pngwing.com.png"
+                                            alt="">F</a>
+                                    <a href="https://github.com/MatteoZattini" target="_blank"><img style="width: 100%;"
+                                            src="../assets/img/Git_png/pngwing.com-blue.png" alt="">Ma</a>
+                                    <a href="https://github.com/EdoardoMenicucci" target="_blank"><img
+                                            style="width: 100%;" src="../assets/img/Git_png/pngwing.com-red.png"
+                                            alt="">E</a>
+                                    <a href="https://github.com/Mikee282828" target="_blank"><img style="width: 100%;"
+                                            src="../assets/img/Git_png/pngwing.com-yellow.png" alt="">Mi</a>
+                                    <a href="https://github.com/damirusso95" target="_blank"><img style="width: 100%;"
+                                            src="../assets/img/Git_png/pngwing.com-blue.png" alt="">D</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="footer_bg">
+                    <div class="footer_bg_one"></div>
+                    <div class="footer_bg_two"></div>
+                </div>
             </div>
-            <div class="footer_bg">
-                <div class="footer_bg_one"></div>
-                <div class="footer_bg_two"></div>
-            </div>
-        </div>
-        <div class="footer_bottom">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-7">
-                        <p class="mb-0 f_400">© Deliveboo.</p>
-                    </div>
-                    <div class="col-lg-6 col-sm-5 text-right">
-                        <p>Creato e sviluppato da: Filippo , Matteo ,
-                            Edoardo , Michele e Damiano</p>
+            <div class="footer_bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-7">
+                            <p class="mb-0 f_400">© Deliveboo.</p>
+                        </div>
+                        <div class="col-lg-6 col-sm-5 text-right">
+                            <p>Creato e sviluppato da: Filippo, Matteo, Edoardo, Michele e Damiano</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-
+        </footer>
+    </div>
 </template>
+
+<script>
+export default {
+    name: 'Partnership',
+
+    methods: {
+        handleSpacebar(event) {
+            // Verifica se la barra spaziatrice è stata premuta
+            if (event.code === 'Space') {
+                event.preventDefault(); // Impedisci il comportamento predefinito della barra spaziatrice
+                const element = document.querySelector('.footer_bg_one');
+                if (element) {
+                    element.style.transform = 'translateY(-70px)';
+                    setTimeout(() => {
+                        element.style.transform = 'translateY(0)';
+                    }, 100); // Esegui il salto per 100ms
+                }
+            }
+        }
+    },
+
+    mounted() {
+        // Aggiungi un listener per l'evento keydown
+        window.addEventListener('keydown', this.handleSpacebar);
+    },
+
+    beforeDestroy() {
+        // Rimuovi il listener quando il componente viene distrutto
+        window.removeEventListener('keydown', this.handleSpacebar);
+    }
+}
+</script>
 
 <style scoped>
 .footer {
-
     color: white;
 }
 
@@ -162,7 +156,6 @@ export default {
 .background__card {}
 
 .together {
-
     top: 60%;
     left: 50%;
     transform: translate(-50%, -92%);
@@ -170,7 +163,6 @@ export default {
 
 .together img {
     width: 150px;
-
 }
 
 .join-us {
@@ -198,12 +190,9 @@ export default {
 
 /* FOOTER */
 
-
-
 .new_footer_area {
     background: #fbfbfd;
 }
-
 
 .new_footer_top {
     padding: 120px 0px 270px;
@@ -259,8 +248,6 @@ footer button:focus {
     text-decoration: none;
     outline: none;
 }
-
-
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
     color: #0F5EA3;
@@ -371,7 +358,6 @@ footer h6 {
     color: #6a7695;
 }
 
-
 .new_footer_top .footer_bg {
     position: absolute;
     bottom: 0;
@@ -388,6 +374,8 @@ footer h6 {
     position: absolute;
     bottom: 0;
     left: 30%;
+    transform: translateY(0);
+    transition: transform 0.1s ease;
     -webkit-animation: myfirst 22s linear infinite;
     animation: myfirst 22s linear infinite;
 }
@@ -403,8 +391,6 @@ footer h6 {
     -webkit-animation: myfirst 30s linear infinite;
     animation: myfirst 30s linear infinite;
 }
-
-
 
 @-moz-keyframes myfirst {
     0% {
