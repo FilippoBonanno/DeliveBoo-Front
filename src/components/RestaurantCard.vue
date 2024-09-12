@@ -23,7 +23,7 @@ export default {
       </div>
     </div>
     <div class="restaurant-name mt-3 text-start">
-      <h5 class="m-0 fw-bolder">{{ restaurant.name }}</h5>
+      <h5 class="m-0">{{ restaurant.name }}</h5>
     </div>
   </div>
 
@@ -50,7 +50,7 @@ export default {
   font-family: "Merriweather", serif;
 }
 
-.card-container:hover img{
+.card-container:hover img {
   scale: 1.2;
   transition-duration: 1s;
 }
@@ -59,6 +59,10 @@ export default {
   width: 250px;
   height: 150px;
 
+}
+
+.restaurant-name h5 {
+  font-weight: 900;
 }
 
 .typology-name {
