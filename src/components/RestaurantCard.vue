@@ -49,5 +49,18 @@ export default {
   background-color: #00000046;
 }
 
-.restaurant-name {}
+@media (max-width: 767.98px) {
+  .image-container {
+    height: 250px;
+    width: 100%;
+  }
+
+  .card-container {
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
 </style>
