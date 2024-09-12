@@ -33,7 +33,7 @@ export default {
 <template>
     <div class="wave position-relative">
         <img src="../assets/img/Partnership/wave.svg">
-        <div class="together position-absolute d-flex">
+        <div class="together position-absolute d-flex d-none d-md-block">
             <img src="../assets/img/Partnership/together-opt.svg">
         </div>
 
