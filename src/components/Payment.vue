@@ -269,9 +269,6 @@ export default {
                     <input type="hidden" id="total_price" name="total_price">
                     <input type="hidden" id="restaurant_id" name="restaurant_id">
                     <input type="hidden" id="plates" name="plates">
-                    <pre>
-                        {{ storeCart }}
-                    </pre>
                 </div>
             </div>
         </div>
