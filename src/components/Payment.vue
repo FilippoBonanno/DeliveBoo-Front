@@ -189,9 +189,7 @@ export default {
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
                     <h1 class="mb-3">{{ store.initialOwner }}</h1>
-                    {{ store.restaurantId }}
-                    <h2 class="mb-4">Totale: {{ getTotalPrice() }}€</h2>
-
+                    <h2 class="mb-4">Totale: €{{ getTotalPrice() }}</h2>
                     <!-- Full Name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome e Cognome<span class="text-danger">*</span></label>
