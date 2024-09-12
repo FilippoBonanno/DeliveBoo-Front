@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-    <div class="container mt-5">
+    <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <h1 class="text-center">
@@ -31,6 +31,8 @@ export default {
 </template>
 
 <style scoped>
-
+    .container{
+        margin-top:5rem;
+    }
 </style>
 

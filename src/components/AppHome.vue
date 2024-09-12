@@ -91,7 +91,7 @@ export default {
     <!-- VISIBILE SOLO DA MD IN GIù -->
     <div class="d-block d-md-none my-4">
       <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
-      <div class="row">
+      <div class="row g-0">
         <div class="col-12 d-flex justify-content-center flex-wrap">
           <div v-if="!isLoading && restaurants.length"
             class="d-flex flex-wrap justify-content-center justify-content-md-between ">
