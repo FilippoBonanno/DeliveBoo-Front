@@ -47,7 +47,9 @@ export default {
     <header class="orange mb-5">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-12 h-100 d-flex justify-content-between align-items-center ">
+
+                <!-- ELEMENTO VISIBILE DA MD IN SU -->
+                <div class="col-12 h-100 d-none d-md-flex justify-content-between align-items-center">
                     <div class="h-100 d-flex align-items-center animate__animated animate__lightSpeedInLeft">
                         <img src="../assets/img/Deliveboo-logo-Byke.png">
                         <h1 class="title-logo ms-3 mb-0">DeliveBoo</h1>
@@ -65,6 +67,27 @@ export default {
                         <AppCart />
                     </div>
                 </div>
+
+                <!-- ELEMENTO VISIBILE SOLO IN MODALITà MOBILE -->
+                <div class="col-12 h-100 d-flex d-md-none justify-content-between align-items-center">
+                    <div class="h-75 d-flex align-items-center animate__animated animate__lightSpeedInLeft">
+                        <img class="w-75" src="../assets/img/Deliveboo-logo-Byke.png">
+                        <h1 class="title-logo ms-3 mb-0 fs-1">DeliveBoo</h1>
+                    </div>
+                    <div class="d-flex">
+                        <div class="me-1 btn custom-btn">
+                            <router-link :to="{ name: 'home' }"><i class="fa-solid fa-house"></i></router-link>
+                        </div>
+
+                        <div class=" cart-btn" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span v-if="countItems() > 0" class="badge badge-cart">{{ countItems() }}</span>
+                        </div>
+                        <AppCart />
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
@@ -91,7 +114,7 @@ header {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
-    color: #5B85AA;
+    color: #0f5ea3;
 }
 
 

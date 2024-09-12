@@ -4,6 +4,7 @@ import RestaurantCard from './RestaurantCard.vue'; // Importa RestaurantCard
 import TypologyCard from './TypologyCard.vue'; // Altri componenti
 import Skeleton from 'primevue/skeleton';
 import Jumbotrone from './Jumbotrone.vue';
+import Partnership from './Partnership.vue';
 
 export default {
   name: 'AppHome',
@@ -11,7 +12,8 @@ export default {
     TypologyCard,
     RestaurantCard,
     Skeleton,
-    Jumbotrone
+    Jumbotrone,
+    Partnership
   },
   data() {
     return {
@@ -60,11 +62,14 @@ export default {
 <template>
   <main>
     <Jumbotrone @arraySent="handleEmit" />
-    <div class="container my-4">
+
+    <!-- VISIBILE DA MD IN Sù -->
+    <div class="container d-none d-md-block my-4">
       <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
       <div class="row">
         <div class="col-12 d-flex justify-content-center flex-wrap">
-          <div v-if="!isLoading && restaurants.length" class="d-flex flex-wrap justify-content-center">
+          <div v-if="!isLoading && restaurants.length"
+            class="d-flex flex-wrap justify-content-center justify-content-md-between ">
             <template v-for="restaurant in restaurants" :key="restaurant.id">
               <router-link class="btn" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
                 <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
@@ -78,11 +83,38 @@ export default {
             <div v-for="x in 8" :key="x" class="m-3">
               <Skeleton shape="square" size="15rem" class="ms-2"></Skeleton>
             </div>
-
           </div>
         </div>
       </div>
     </div>
+
+    <!-- VISIBILE SOLO DA MD IN GIù -->
+    <div class="d-block d-md-none my-4">
+      <h2 v-if="!isLoading">Ristoranti disponibili: {{ totalRestaurants }}</h2>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center flex-wrap">
+          <div v-if="!isLoading && restaurants.length"
+            class="d-flex flex-wrap justify-content-center justify-content-md-between ">
+            <template v-for="restaurant in restaurants" :key="restaurant.id">
+              <router-link class="btn w-100" :to="{ name: 'single-restaurant', params: { slug: restaurant.slug } }">
+                <RestaurantCard :imageSrc="restaurant.img" :restaurantName="restaurant.name" :restaurant="restaurant" />
+              </router-link>
+            </template>
+          </div>
+          <div v-else-if="notFound">
+            <h2 class="text-danger">La richiesta non ha prodotto alcun risultato</h2>
+          </div>
+          <div v-if="isLoading" class="d-flex justify-content-center flex-wrap">
+            <div v-for="x in 8" :key="x" class="m-3">
+              <Skeleton shape="square" size="15rem" class="ms-2"></Skeleton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <Partnership />
   </main>
 </template>
 <style scoped>
