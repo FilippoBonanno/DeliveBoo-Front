@@ -70,8 +70,8 @@ export default {
 
 <template>
     <!-- DATI CONTENENTI IL CARRELLO -->
-    <div class="offcanvas bg-dark text-white offcanvas-end " data-bs-scroll="true" data-bs-backdrop="false"
-        tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas bg-dark text-white offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
             <h5 v-if="handleGetCart().length == 0" class="offcanvas-title fs-2" id="offcanvasScrollingLabel">Il tuo
                 Carrello
@@ -194,6 +194,4 @@ export default {
     filter: invert(2);
     /* Colore leggermente grigio al passaggio del mouse */
 }
-
-
 </style>
