@@ -17,7 +17,8 @@ export default {
             phone: '',
             alfanumerici: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
             errori: false,
-            submitTry: false
+            submitTry: false,
+            storeCart: store.getCart()
         }
     },
     methods: {
@@ -170,6 +171,9 @@ export default {
                                 // Id Ristorante
                                 document.getElementById('restaurant_id').value = store.restaurantId;
 
+                                // Piatti
+                                document.getElementById('plates').value = JSON.stringify(this.storeCart);
+
                                 // Form submit
                                 this.$refs.form.submit();
                             });
@@ -264,6 +268,10 @@ export default {
                     <input type="hidden" id="device" name="device_data">
                     <input type="hidden" id="total_price" name="total_price">
                     <input type="hidden" id="restaurant_id" name="restaurant_id">
+                    <input type="hidden" id="plates" name="plates">
+                    <pre>
+                        {{ storeCart }}
+                    </pre>
                 </div>
             </div>
         </div>
