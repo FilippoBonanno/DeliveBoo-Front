@@ -19,7 +19,7 @@ const router = createRouter({
     },
 
     {
-      path: "/TypologyCard",
+      path: "/typologyCard",
       name: "TypologyCard",
       component: TypologyCard,
     },
@@ -31,30 +31,30 @@ const router = createRouter({
     },
 
     {
-      path: "/RestaurantCard",
+      path: "/restaurantCard",
       name: "RestaurantCard",
       component: RestaurantCard,
     },
 
     {
-      path: "/Checkout",
+      path: "/checkout",
       name: "Payment",
       component: Payment,
     },
 
     {
-      path: "/Checkout/Success",
+      path: "/checkout/success",
       name: "PaymentSuccess",
       component: PaymentSuccess,
     },
 
     {
-      path: "/Checkout/Denied",
+      path: "/checkout/denied",
       name: "PaymentDenied",
       component: PaymentDenied,
     },
     {
-      path: "/Jumbotrone",
+      path: "/jumbotrone",
       name: "Jumbotrone",
       component: Jumbotrone,
     },

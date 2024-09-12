@@ -10,7 +10,14 @@ export default {
         return {
             token: null,
             dropinInstance: null,
-            store: store
+            store: store,
+            email: '',
+            address: '',
+            postalcode: '',
+            phone: '',
+            alfanumerici: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+            errori: false,
+            submitTry: false
         }
     },
     methods: {
@@ -27,7 +34,97 @@ export default {
                 // console.log(this.cart[i].price, sum);
             }
             return sum.toFixed(2);
-        }
+        },
+        checkOnSubmit(event) {
+
+            // Reset errori
+            this.errori = false;
+
+            // Provato a fare il submit
+            this.submitTry = true;
+
+            // Validazione email
+            if (!this.emailValidator(this.email)) {
+                // messaggio d'errore
+                this.errori = true;
+            }
+
+            // Validazione indirizzo
+            if (!this.addressValidator(this.address)) {
+                // messaggio d'errore
+            }
+
+            // Se ci sono errori allora previeni l'invio del form
+            if (this.errori) {
+                event.preventDefault();
+            }
+        },
+        emailValidator(email) {
+
+            // Controlla se contiene il . e la @
+            if (!email.includes("@") || !email.includes(".")) {
+                this.errori = true;
+                return false;
+            }
+            // Controlla che ci sia un solo "@" e che sia in una posizione valida
+            const atIndex = email.indexOf('@');
+            if (atIndex === -1 || atIndex !== email.lastIndexOf('@')) {
+                this.errori = true;
+                return false
+            }
+            // Controlla che ci sia un punto dopo "@" e che non sia l'ultimo carattere
+            const dotIndex = email.indexOf(".", atIndex);
+            if (dotIndex === -1 || dotIndex === email.length - 1) {
+                this.errori = true;
+                return false;
+            }
+            // Controlla che il primo e l'ultimo carattere siano alfanumerici
+            if (!this.alfanumerici.includes(email[0]) || !this.alfanumerici.includes(email[email.length - 1])) {
+                this.errori = true;
+                return false
+            }
+            // Controlla che non ci siano spazi bianchi
+            if (email.includes(' ')) {
+                this.errori = true;
+                return false
+            }
+            // Controlla che non ci siano ".." o ".@" o "@."
+            if (email.includes("..") || email.includes(".@") || email.includes("@.")) {
+                this.errori = true;
+                return false;
+            }
+            // Se tutti i controlli passano, l'email è valida
+            return true
+
+        },
+        addressValidator(address) {
+
+            address = address.trim();
+            // Controlla se l'indirizzo è vuoto
+            if (address.length === 0) {
+                this.errori = true;
+                return false;
+            }
+
+            // Controlla la lunghezza minima dell'indirizzo
+            if (address.length < 10) {
+                this.errori = true;
+                return false;
+            }
+
+            // Controlla la presenza di numeri nell'indirizzo
+            const hasNumber = /\d/.test(address);
+            if (!hasNumber) {
+                this.errori = true;
+                return false;
+            }
+
+            // Se tutte le validazioni passano
+            return true;
+        },
+        resetErrors() {
+            this.errori = false;
+        },
     }
     ,
     mounted() {
@@ -91,13 +188,8 @@ export default {
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
-                    <h1 class="mb-4">Totale: {{ getTotalPrice() }}€</h1>
-                    
-                    <!-- Email Address -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Indirizzo Email<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
+                    <h1 class="mb-3">{{ store.initialOwner }}</h1>
+                    <h2 class="mb-4">Totale: {{ getTotalPrice() }}€</h2>
 
                     <!-- Full Name -->
                     <div class="mb-3">
@@ -105,11 +197,24 @@ export default {
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
 
+                    <!-- Email Address -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Indirizzo Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" required v-model="email">
+                        <div class="errorClientMessage text-danger" role="alert" v-show="!emailValidator(email) && submitTry">
+                            Email non valida esempio: esempio@esempio.com
+                        </div>
+                    </div>
+
                     <div class="row">
                         <!-- Address -->
                         <div class="col-md-6 mb-3">
                             <label for="address" class="form-label">Indirizzo<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="address" name="address" required>
+                            <input type="text" class="form-control" id="address" name="address" required
+                                v-model="address">
+                            <div class="errorClientMessage text-danger" role="alert" v-show="!addressValidator(address) && submitTry">
+                                L'indirizzo non è valido!
+                            </div>
                         </div>
 
                         <!-- City -->
@@ -128,8 +233,10 @@ export default {
                     <div class="row">
                         <!-- Postal Code -->
                         <div class="col-md-4 mb-3">
-                            <label for="postalcode" class="form-label">Codice Postale<span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="postalcode" name="postalcode" required>
+                            <label for="postalcode" class="form-label">Codice Postale<span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control" id="postalcode" name="postalcode" required
+                                v-model="postalcode">
                         </div>
 
                         <!-- Country -->
@@ -141,7 +248,7 @@ export default {
                         <!-- Phone -->
                         <div class="col-md-4 mb-3">
                             <label for="phone" class="form-label">Telefono<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="phone" name="phone" required>
+                            <input type="text" class="form-control" id="phone" name="phone" required v-model="phone">
                         </div>
                     </div>
 
@@ -151,7 +258,7 @@ export default {
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success w-100">Acquista ora</button>
+                    <button type="submit" class="btn btn-success w-100" @click="checkOnSubmit">Acquista ora</button>
 
                     <!-- Hidden Inputs -->
                     <input type="hidden" id="nonce" name="payment_method_nonce">
@@ -165,7 +272,6 @@ export default {
 </template>
 
 <style scoped>
-
 #payment-form {
     margin-top: 5rem;
 }
@@ -175,4 +281,3 @@ export default {
     width: 100%;
 }
 </style>
-
