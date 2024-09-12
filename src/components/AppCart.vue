@@ -132,7 +132,7 @@ export default {
                     <!-- Pulsante per procedere al checkout -->
                     <div class="mt-3">
                         <router-link :to="{ name: 'Payment' }">
-                            <button class="btn btn-primary checkout w-100" type="button">Procedi al
+                            <button class="btn btn-primary checkout w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling">Procedi al
                                 Pagamento
                             </button>
                         </router-link>

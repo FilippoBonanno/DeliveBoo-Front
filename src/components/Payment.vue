@@ -11,7 +11,6 @@ export default {
             token: null,
             dropinInstance: null,
             store: store,
-            restaurantName: '',
             email: '',
             address: '',
             postalcode: '',
@@ -180,10 +179,6 @@ export default {
                 );
             }
         });
-        axios.get('http://localhost:8000/api/restaurants/showid/' + store.initialOwner).then(response => {
-            this.restaurantName = response.data.name;
-            console.log(response.data);
-        });
     }
 }
 </script>
@@ -193,7 +188,7 @@ export default {
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
-                    <h1 class="mb-3">{{ this.restaurantName }}</h1>
+                    <h1 class="mb-3">{{ store.initialOwner }}</h1>
                     <h2 class="mb-4">Totale: {{ getTotalPrice() }}€</h2>
 
                     <!-- Full Name -->
