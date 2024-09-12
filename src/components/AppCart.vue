@@ -107,8 +107,11 @@ export default {
                     </li>
                 </ul>
                 <div v-if="handleGetCart().length !== 0">
-                    <div><button type="button" class="btn btn-warning" @click="visible = true">
-                            Svuota il Carrello
+                    <div>
+                        <!-- <Button label="Svuota il Carrello" severity="contrast" @click="visible = true" /> -->
+                        <button type="button" class="btn btn-warning" @click="visible = true"> <i
+                                class="fa-regular fa-trash-can fa-lg"></i>
+                            <span class="ms-2">Elimina</span>
                         </button>
                     </div>
                     <!-- Modal -->
@@ -166,9 +169,9 @@ export default {
     background-color: #0f5ea3;
 }
 
-i {
+.quantity i {
     cursor: pointer;
-    background-color: #a3a3a3;
+    background-color: #d4d4d4;
     border-radius: 50%;
     padding: 5px;
     color: rgb(0, 0, 0);
@@ -177,7 +180,7 @@ i {
 
 .quantity {
     font-weight: bold;
-    background-color: #a3a3a3;
+    background-color: #d4d4d4;
     border-radius: 50px;
     align-items: center;
 }
