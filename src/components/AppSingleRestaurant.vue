@@ -59,8 +59,8 @@ export default {
             <div v-if="isLoading">
                 <Skeleton height="3rem" width="15rem" class="mb-2" borderRadius="16px"></Skeleton>
             </div>
-            <h1 v-else>{{ restaurant.name }}</h1>
-            <img class="img w-md-100 w-50 " :src="restaurant.img" alt="">
+            <h1 v-else style="height:10%">{{ restaurant.name }}</h1>
+            <img class="img w-md-100 w-50" :src="restaurant.img" alt="" style="height:90%;">
             <h2 class="m-3">Menù</h2>
         </div>
         <div class="container">
@@ -76,7 +76,7 @@ export default {
                                     <button class="btn-add-to-cart" @click="handleAddToCart(dish, restaurant)">Aggiungi
                                         al Carrello</button>
                                 </div>
-                                <img :src="dish.img" :alt="dish.name"/>
+                                <img :src="dish.img" :alt="dish.name" style="height:60%"/>
                                 <!-- Modale -->
                                 <Dialog v-model:visible="store.confirmModal" modal header="Conferma"
                                     :style="{ width: '25rem' }">
@@ -118,11 +118,11 @@ img {
     border-radius: 100px;
     /* img in cover */
     object-fit: cover;
-    height:60%;
 }
 
 .title-section {
     margin-bottom: 30px;
+    height:50rem;
 }
 
 h1 {
