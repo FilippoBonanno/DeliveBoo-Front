@@ -70,13 +70,13 @@ export default {
                         <template v-if="!isLoading">
                             <div class="menu-item me-3 ms-3 mb-4" v-for="dish in restaurant.dishes" :key="dish.id">
                                 <h3>{{ dish.name }}</h3>
-                                <p>{{ dish.description }}</p>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <p style="height:20%">{{ dish.description }}</p>
+                                <div class="d-flex justify-content-between align-items-center aggiungi">
                                     <span class="price">€ {{ parseFloat(dish.price).toFixed(2) }}</span>
                                     <button class="btn-add-to-cart" @click="handleAddToCart(dish, restaurant)">Aggiungi
                                         al Carrello</button>
                                 </div>
-                                <img :src="dish.img" :alt="dish.name" />
+                                <img :src="dish.img" :alt="dish.name"/>
                                 <!-- Modale -->
                                 <Dialog v-model:visible="store.confirmModal" modal header="Conferma"
                                     :style="{ width: '25rem' }">
@@ -105,6 +105,9 @@ export default {
     </div>
 </template>
 <style scoped>
+.aggiugi{
+    height: 20%;
+}
 .menu-section {
     text-align: center;
     padding: 50px 0;
@@ -115,7 +118,7 @@ img {
     border-radius: 100px;
     /* img in cover */
     object-fit: cover;
-    max-height: 50vh;
+    height:60%;
 }
 
 .title-section {
@@ -149,6 +152,7 @@ h2 {
     color: white;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height:30rem;
 }
 
 .menu-item h3 {
