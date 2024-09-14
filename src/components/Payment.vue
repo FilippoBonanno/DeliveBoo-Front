@@ -190,10 +190,47 @@ export default {
 <template>
     <form id="payment-form" action="http://localhost:8000/api/checkout" method="post" ref="form">
         <div class="container mt-5">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-5">
                 <div class="col-md-8 col-lg-6">
-                    <h1 class="mb-3">{{ store.initialOwner }}</h1>
-                    <h2 class="mb-4">Totale: €{{ getTotalPrice() }}</h2>
+                    <h5 class="my-3"><strong>{{ store.initialOwner }}</strong></h5>
+                    <div class="card border-0 ">
+                        <div class="card-body pt-0">
+                            <div class="row  justify-content-between" v-for="element in store.getCart()">
+                                <div class="col-auto col-md-7">
+                                    <div class="media flex-column flex-sm-row">
+                                        <img class=" img-fluid dishImg" :src="element.img" width="62" height="62" >
+                                        <div class="media-body  my-auto">
+                                            <div class="row ">
+                                                <div class="col-auto">
+                                                    <p class="mb-0"><b>{{element.name}}</b></p>
+                                                    <small class="text-muted d-block text-truncate">{{ element.description }}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" pl-0 flex-sm-col col-auto  my-auto">
+                                    <p class="boxed-1">{{element.quantity}}</p>
+                                </div>
+                                <div class=" pl-0 flex-sm-col col-auto  my-auto ">
+                                    <p><b>€{{ parseFloat(element.price).toFixed(2) }}</b></p>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row ">
+                                <div class="col">
+                                    <div class="row justify-content-between">
+                                        <div class="col-4">
+                                            <p><b>Totale</b></p>
+                                        </div>
+                                        <div class="flex-sm-col col-auto">
+                                            <p class="mb-1"><b>€{{ getTotalPrice() }}</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Full Name -->
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome e Cognome<span class="text-danger">*</span></label>
@@ -204,7 +241,8 @@ export default {
                     <div class="mb-3">
                         <label for="email" class="form-label">Indirizzo Email<span class="text-danger">*</span></label>
                         <input type="email" class="form-control" id="email" name="email" required v-model="email">
-                        <div class="errorClientMessage text-danger" role="alert" v-show="!emailValidator(email) && submitTry">
+                        <div class="errorClientMessage text-danger" role="alert"
+                            v-show="!emailValidator(email) && submitTry">
                             Email non valida esempio: esempio@esempio.com
                         </div>
                     </div>
@@ -215,7 +253,8 @@ export default {
                             <label for="address" class="form-label">Indirizzo<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="address" name="address" required
                                 v-model="address">
-                            <div class="errorClientMessage text-danger" role="alert" v-show="!addressValidator(address) && submitTry">
+                            <div class="errorClientMessage text-danger" role="alert"
+                                v-show="!addressValidator(address) && submitTry">
                                 L'indirizzo non è valido!
                             </div>
                         </div>
@@ -261,7 +300,7 @@ export default {
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success w-100" @click="checkOnSubmit">Acquista ora</button>
+                    <button type="submit" class="btn btn-success w-100 mt-3" @click="checkOnSubmit">Acquista ora</button>
 
                     <!-- Hidden Inputs -->
                     <input type="hidden" id="nonce" name="payment_method_nonce">
@@ -280,7 +319,10 @@ export default {
     margin-top: 5rem;
 }
 
+.dishImg{
+    aspect-ratio: 1;
 
+}
 .btn-success {
     width: 100%;
 }
