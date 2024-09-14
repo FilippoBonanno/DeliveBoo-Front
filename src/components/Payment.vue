@@ -46,19 +46,26 @@ export default {
 
             // Validazione email
             if (!this.emailValidator(this.email)) {
-                // messaggio d'errore
                 this.errori = true;
             }
 
             // Validazione indirizzo
             if (!this.addressValidator(this.address)) {
-                // messaggio d'errore
+                this.errori = true;
+            }
+
+            // Validazione telefono
+            if (!this.phoneValidator(this.phone)) {
+                this.errori = true;
             }
 
             // Se ci sono errori allora previeni l'invio del form
             if (this.errori) {
                 event.preventDefault();
+                return false;
             }
+
+            return true;
         },
         emailValidator(email) {
 
@@ -123,8 +130,18 @@ export default {
             // Se tutte le validazioni passano
             return true;
         },
-        resetErrors() {
-            this.errori = false;
+        phoneValidator(phone){
+            let ammessi = "1234567890+-"
+            let analisi = phone.trim();
+            if(analisi.length>18){
+                return false;
+            }
+            for(let i = 0; i<analisi.length; i++){
+                if(!ammessi.includes(analisi[i])){
+                    return false;
+                }
+            };
+            return true;
         },
     }
     ,
@@ -291,6 +308,10 @@ export default {
                         <div class="col-md-4 mb-3">
                             <label for="phone" class="form-label">Telefono<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="phone" name="phone" required v-model="phone">
+                            <div class="errorClientMessage text-danger" role="alert"
+                                v-show="!phoneValidator(phone) && submitTry">
+                                Il numero di telefono inserito non è valido!
+                            </div>
                         </div>
                     </div>
 
