@@ -17,7 +17,7 @@
                                     src="https://glovoapp.com/images/corporate-container/partners-image-opt.png">
                             </div>
                             <h3 class="text-center mt-3 fw-bold">Diventa Partner</h3>
-                            <div class="col-6 text-center mt-3">
+                            <div class="col-12 col-md-6 text-center mt-3">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet inventore
                                 enim quis error et ipsa fugiat voluptates consequatur beatae, alias id provident odio
                                 dolor itaque, laborum
