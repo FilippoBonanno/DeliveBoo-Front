@@ -60,10 +60,10 @@ export default {
                 <Skeleton height="3rem" width="15rem" class="mb-2" borderRadius="16px"></Skeleton>
             </div>
             <h1 v-else style="height:10%">{{ restaurant.name }}</h1>
-            <img class="img w-md-100 w-50" :src="restaurant.img" alt="" style="height:90%;">
+            <img class="img w-50 w-md-75 " :src="restaurant.img" alt="" style="height:90%;">
             <h2 class="m-3">Menù</h2>
         </div>
-        <div class="container">
+        <div class="container pt-4">
             <div class="row">
                 <div class="col-12">
                     <div class="menu-items d-flex flex-wrap justify-content-center">
@@ -76,7 +76,7 @@ export default {
                                     <button class="btn-add-to-cart" @click="handleAddToCart(dish, restaurant)">Aggiungi
                                         al Carrello</button>
                                 </div>
-                                <img :src="dish.img" :alt="dish.name" style="height:60%"/>
+                                <img :src="dish.img" :alt="dish.name" style="height:60%" />
                                 <!-- Modale -->
                                 <Dialog v-model:visible="store.confirmModal" modal header="Conferma"
                                     :style="{ width: '25rem' }">
@@ -105,9 +105,10 @@ export default {
     </div>
 </template>
 <style scoped>
-.aggiugi{
+.aggiugi {
     height: 20%;
 }
+
 .menu-section {
     text-align: center;
     padding: 50px 0;
@@ -122,7 +123,7 @@ img {
 
 .title-section {
     margin-bottom: 30px;
-    height:50rem;
+    height: 50vh;
 }
 
 h1 {
@@ -152,7 +153,7 @@ h2 {
     color: white;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height:30rem;
+    height: 30rem;
 }
 
 .menu-item h3 {
