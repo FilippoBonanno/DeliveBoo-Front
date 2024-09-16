@@ -9,6 +9,8 @@ export default {
 
     data() {
         return {
+            timer: '',
+            time: 5,
         }
     },
 
@@ -21,6 +23,14 @@ export default {
 
     mounted() {
         this.handleClearCart();
+        this.timer = setInterval(() => {
+            if (this.time > 1) {
+                this.time-=1;
+            } else {
+                clearInterval(this.timer);
+                this.$router.push({ path: '/' });
+            }
+        }, 1000);
     }
 }
 </script>
@@ -31,6 +41,9 @@ export default {
             <div class="col-12 d-flex justify-content-center">
                 <h1 class="text-center">
                     Grazie per aver acquistato da noi!
+                    <h3 class="text-center text-secondary">
+                        Verrai reindirizzato alla home fra {{ time }} secondi.
+                    </h3>
                 </h1>
             </div>
         </div>
@@ -38,7 +51,7 @@ export default {
 </template>
 
 <style scoped>
-    .container{
-        margin-top:5rem;
-    }
+.container {
+    margin-top: 5rem;
+}
 </style>
