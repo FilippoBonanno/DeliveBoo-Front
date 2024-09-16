@@ -41,13 +41,14 @@
                                 <p>Non perderti nessuna novità.!</p>
                                 <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true">
                                     <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                    <button class="btn btn_get btn_get_two" type="submit">Contattaci</button>
+                                    <button class="btn btn_get btn_get_two mb-3 mb-md-1"
+                                        type="submit">Contattaci</button>
                                     <p class="mchimp-errmessage" style="display: none;"></p>
                                     <p class="mchimp-sucmessage" style="display: none;"></p>
                                 </form>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 mb-3 mb-md-1">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
                                 <h3 class="f-title f_600 t_color f_size_18">Download</h3>
                                 <ul class="list-unstyled f_list">
@@ -58,7 +59,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6 mb-3 mb-md-1   ">
                             <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s">
                                 <h3 class="f-title f_600 t_color f_size_18">Aiuto</h3>
                                 <ul class="list-unstyled f_list">
