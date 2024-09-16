@@ -39,12 +39,12 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <h1 class="text-center">
+                <h2 class="text-center">
                     Grazie per aver acquistato da noi!
-                    <h3 class="text-center text-secondary">
+                    <p class="text-center text-secondary">
                         Verrai reindirizzato alla home fra {{ time }} secondi.
-                    </h3>
-                </h1>
+                    </p>
+                </h2>
             </div>
         </div>
     </div>
@@ -53,5 +53,8 @@ export default {
 <style scoped>
 .container {
     margin-top: 5rem;
+}
+h2 p{
+    font-size: small;
 }
 </style>
