@@ -24,7 +24,7 @@
                                 omnis accusamus consectetur architecto. Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Similique quod nemo nobis voluptatum incidunt dicta.
                             </div>
-                            <button class="custom-btn mt-5">Diventa Partner</button>
+                            <a href="http://localhost:8000" class="custom-btn mt-5 btn">Diventa Partner</a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ export default {
     font-family: "Merriweather", serif;
 }
 
-.background__card {}
+
 
 .together {
     top: 60%;
