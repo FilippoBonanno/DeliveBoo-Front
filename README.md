@@ -1,21 +1,48 @@
 
-<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" width="400"></a></p> <p align="center"> <img src="https://img.shields.io/badge/project-DeliveBoo-brightgreen" alt="Project Status"> <img src="https://img.shields.io/badge/vue-3.x-blue" alt="Vue.js 3.x" /> <img src="https://img.shields.io/badge/laravel-10.x-red" alt="Laravel 10.x" /> <img src="https://img.shields.io/badge/bootstrap-5.x-orange" alt="Bootstrap 5.x" /> <img src="https://img.shields.io/badge/npm-7.x-yellow" alt="NPM 7.x" /> <br> <img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT" /> </p>
-DeliveBoo
-DeliveBoo è una piattaforma di food delivery che consente agli utenti di ordinare cibo dai ristoranti locali. Il progetto è stato realizzato per mettere in pratica e migliorare le mie competenze in Vue.js e Laravel, concentrandomi sull'integrazione front-end/back-end e la creazione di un'app web reattiva e scalabile.
+<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" width="400"></a></p>
 
-Tecnologie Utilizzate
-Vue.js 3.x: Per creare un'interfaccia utente dinamica e reattiva.
-Laravel 10.x: Backend robusto per la gestione di utenti, ristoranti e ordini.
-Bootstrap 5.x: Framework CSS per un layout responsivo e moderno.
-Animate.css: Aggiunta di animazioni per migliorare l'esperienza utente.
-Vite: Bundler per ottimizzare il caricamento delle risorse.
-Funzionalità Principali
-Autenticazione degli utenti: Implementata con Laravel, permette agli utenti di registrarsi, fare login e gestire il proprio account.
-Carrello della spesa: Completamente dinamico, con aggiornamenti in tempo reale tramite Vue.js.
-Responsività: Grazie a Bootstrap e CSS personalizzati, l'interfaccia si adatta perfettamente a dispositivi di diverse dimensioni.
-Gestione ordini: Gli utenti possono navigare tra diversi ristoranti, aggiungere prodotti al carrello e finalizzare un ordine con pochi click.
-Lezioni Apprese
-Durante lo sviluppo di DeliveBoo, ho approfondito l'uso combinato di Vue.js e Laravel, migliorando la mia capacità di creare applicazioni web performanti e facilmente manutenibili. Ho imparato a gestire in modo efficiente il passaggio di dati tra front-end e back-end, oltre a migliorare la struttura del codice per una migliore leggibilità e manutenzione.
+<p align="center">
+<img src="https://img.shields.io/badge/project-DeliveBoo-brightgreen" alt="Project Status">
+<img src="https://img.shields.io/badge/vue-3.x-blue" alt="Vue.js 3.x" />
+<img src="https://img.shields.io/badge/laravel-10.x-red" alt="Laravel 10.x" />
+<img src="https://img.shields.io/badge/bootstrap-5.x-orange" alt="Bootstrap 5.x" />
+<img src="https://img.shields.io/badge/npm-7.x-yellow" alt="NPM 7.x" />
+<br>
+<img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT" />
+</p>
+
+# DeliveBoo
+
+DeliveBoo è una piattaforma di food delivery che consente agli utenti di ordinare cibo dai ristoranti locali. Il progetto è stato sviluppato per mettere in pratica e migliorare le mie competenze in **Vue.js** e **Laravel**, concentrandomi sull'integrazione tra frontend e backend e sulla creazione di un'applicazione reattiva e scalabile.
+
+## Tecnologie Utilizzate
+
+- **Vue.js 3.x**: Interfaccia utente dinamica e interattiva.
+- **Laravel 10.x**: Framework back-end per la gestione di utenti, ordini e ristoranti.
+- **Bootstrap 5.x**: Layout responsive e design moderno.
+- **Animate.css**: Aggiunta di animazioni per un'esperienza utente migliore.
+- **Vite**: Gestione delle risorse front-end per performance ottimizzate.
+
+## Funzionalità Principali
+
+- **Autenticazione Utente**: Login, registrazione e gestione dell'account con Laravel.
+- **Carrello Dinamico**: Aggiornamenti in tempo reale tramite Vue.js.
+- **Responsività Completa**: Layout adattivo per dispositivi mobili e desktop.
+- **Gestione Ordini**: Gli utenti possono ordinare dai ristoranti e gestire i propri ordini.
+
+## Lezioni Apprese
+
+Durante lo sviluppo di **DeliveBoo**, ho acquisito esperienza pratica nell'integrazione tra frontend e backend. Ho imparato a gestire la **comunicazione efficiente tra Vue.js e Laravel**, migliorando la struttura del codice e ottimizzando le performance per applicazioni complesse. Ho anche approfondito le migliori pratiche per la gestione dello stato dell'applicazione.
+
+## Setup Iniziale
+
+Segui questi passi per configurare il progetto in locale:
+
+### 1. Clonare la Repository
+Clona la repository del progetto sul tuo computer:
+```bash
+git clone https://github.com/FilippoBonanno/DeliveBoo-Front.git
+
 
 Setup Iniziale
 Segui questi passi per configurare il progetto in locale:
