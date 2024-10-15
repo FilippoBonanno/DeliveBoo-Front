@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="./public/image.png" width="400" alt="Interfaccia Utente di DeliveBoo"></a></p>
+<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="./public/image.png" width="800" alt="Interfaccia Utente di DeliveBoo"></a></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/project-DeliveBoo-brightgreen" alt="Project Status">
