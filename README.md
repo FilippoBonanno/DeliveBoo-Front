@@ -79,7 +79,7 @@ npm run dev
 Demo e Screenshot
 Puoi vedere una demo live qui oppure guarda uno screenshot dell'interfaccia:
 
-<p align="center"> <img src="screenshot.png" alt="Interfaccia Utente di DeliveBoo" width="600"> </p>
+<p align="center"> <img src="./public/image.png" alt="Interfaccia Utente di DeliveBoo" width="600"> </p>
 Risorse CRUD
 Per creare un nuovo model, controller, migration e seeder in un unico comando:
 
