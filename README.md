@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" width="400"></a></p>
+<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="./public/image.png" width="400" alt="Interfaccia Utente di DeliveBoo"></a></p>
 
 <p align="center">
 <img src="https://img.shields.io/badge/project-DeliveBoo-brightgreen" alt="Project Status">
@@ -79,14 +79,7 @@ npm run dev
 Demo e Screenshot
 Puoi vedere una demo live qui oppure guarda uno screenshot dell'interfaccia:
 
-<p align="center"> <img src="./public/image.png" alt="Interfaccia Utente di DeliveBoo" width="600"> </p>
-Risorse CRUD
-Per creare un nuovo model, controller, migration e seeder in un unico comando:
-
-bash
- 
-php artisan make:model NomeModello -rmsR
 
 Contatti
 LinkedIn: Filippo Bonanno
-Email: filippo.bonanno@example.com
+Email: bonanno_filippo@outlook.com
